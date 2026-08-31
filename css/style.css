@@ -1676,11 +1676,23 @@ body.tt-magic-cursor #magic-cursor {
   display: flex;
   align-items: center;
   gap: 70px;
+  flex-wrap: wrap;
 }
 @media (max-width: 1199px) {
   .topbar-area .contact-list {
     gap: 50px;
+    justify-content: center;
   }
+}
+@media (max-width: 767px) {
+  .topbar-area .contact-list {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+}
+.topbar-area .contact-list li a {
+  font-size: 14px;
 }
 .topbar-area .contact-list li a svg {
   fill: var(--text-color);
@@ -12041,11 +12053,16 @@ header.style-1.home2-header.two .primary-btn1 {
     height: 600px;
   }
 }
-.home3-banner-section .video-area video {
+.home3-banner-section .video-area video,
+.home2-business-value-section .business-value-banner-area .banner-left .video-area video,
+.testimonial-card2 .testimonial-content .video-area video,
+.industry1-page .industry-counter-area .achievement-area .video-area video,
+.career-page-highlight-section .achievement-area .achievement-video-area video,
+.error-page .video-area video {
   width: 100%;
-  height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
+  height: auto;
+  max-height: 400px;
+  object-fit: cover;
 }
 .home3-banner-section .video-area::before {
   content: "";
