@@ -12053,7 +12053,6 @@ header.style-1.home2-header.two .primary-btn1 {
     height: 600px;
   }
 }
-.home3-banner-section .video-area video,
 .home2-business-value-section .business-value-banner-area .banner-left .video-area video,
 .testimonial-card2 .testimonial-content .video-area video,
 .industry1-page .industry-counter-area .achievement-area .video-area video,
@@ -12062,6 +12061,15 @@ header.style-1.home2-header.two .primary-btn1 {
   width: 100%;
   height: auto;
   max-height: 400px;
+  object-fit: cover;
+}
+/* The hero video must fill its fixed-height area, not fall back to the 400px
+   max-height meant for the small inline videos above. */
+.home3-banner-section .video-area video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
 }
 .home3-banner-section .video-area::before {

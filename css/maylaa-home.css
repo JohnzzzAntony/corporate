@@ -1,0 +1,1795 @@
+@charset "utf-8";
+/*==================================================================
+  Maylaa International — Home
+  Implemented from Figma: Maylaa--Devlops / "Home" (node 1:9158)
+  https://www.figma.com/design/QbYbSf4Jr0ITqq5NVhwxYS/Maylaa--Devlops?node-id=1-9158
+
+  Section map (Figma node -> block):
+    1:9608  Navbar                 -> .mg-nav
+    1:9631  Hero                   -> .mg-hero
+    1:9683  Stats bar              -> .mg-stats
+    1:9779  "Six Strengths" head   -> .mg-strengths .mg-head
+    1:9721  Six cards grid         -> .mg-strengths-grid
+    1:9782  About                  -> .mg-about
+    1:9789  Brand carousel         -> .mg-brands
+    1:9790  "Global Presence" head -> .mg-presence .mg-head
+    1:9793  World map              -> .mg-map
+    1:13354 Testimonial + logos    -> .mg-trusted
+    1:13494 Team                   -> .mg-team
+    1:13462 Insights               -> .mg-insights
+    1:13518 Footer                 -> .mg-footer
+==================================================================*/
+
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+
+/*------------------------------------------------------------------
+  01. Tokens
+------------------------------------------------------------------*/
+:root {
+  --mg-font: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  /* brand */
+  --mg-primary: #5b6f9a;      /* solid buttons / avatar chip */
+  --mg-primary-alt: #5f76ab;  /* outline buttons, links, meta */
+  --mg-gold: #c8a96a;
+
+  /* text */
+  --mg-title: #000000;
+  --mg-body: #666d80;
+  --mg-body-soft: #5c5f66;
+  --mg-white: #ffffff;
+
+  /* surfaces */
+  --mg-surface: #f7f8fa;
+  --mg-surface-blue: #f6f9ff;
+  --mg-surface-tint: #edf2fb;
+  --mg-surface-chip: #f7f8fc;
+
+  /* lines */
+  --mg-border: #edf2fb;
+  --mg-border-soft: #eef3fb;
+  --mg-border-strong: #d9deea;
+  --mg-border-grey: #e8e8e8;
+
+  /* geometry */
+  --mg-container: 1200px;
+  --mg-radius: 16px;
+  --mg-radius-sm: 6px;
+  --mg-pill: 100px;
+}
+
+/*------------------------------------------------------------------
+  02. Base
+------------------------------------------------------------------*/
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body.mg-page {
+  margin: 0;
+  font-family: var(--mg-font);
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--mg-title);
+  background: var(--mg-white);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* Element-level selectors on purpose: a `body.mg-page p` style reset would
+   outrank every single-class component rule below and silently drop their
+   margins and backgrounds. */
+img {
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+p {
+  margin: 0;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+  border: 0;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.mg-container {
+  width: 100%;
+  max-width: var(--mg-container);
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.mg-sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/*------------------------------------------------------------------
+  03. Shared type + buttons
+------------------------------------------------------------------*/
+/* 50px / 60px display heading. The second half of each heading is muted
+   — in Figma this is a second text span, so markup uses <span class="mg-muted">. */
+.mg-h2 {
+  margin: 0;
+  font-size: 50px;
+  line-height: 60px;
+  font-weight: 400;
+  color: var(--mg-title);
+  letter-spacing: -0.01em;
+}
+
+.mg-muted {
+  color: var(--mg-body);
+}
+
+.mg-lead {
+  font-size: 18px;
+  line-height: 30px;
+  color: var(--mg-body);
+}
+
+.mg-head {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.mg-head--center {
+  align-items: center;
+  text-align: center;
+}
+
+.mg-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  height: 56px;
+  padding: 12px 24px;
+  border-radius: var(--mg-pill);
+  font-size: 16px;
+  line-height: 24px;
+  white-space: nowrap;
+  transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+}
+
+.mg-btn img {
+  width: 16px;
+  height: 16px;
+  flex: none;
+}
+
+.mg-btn--solid {
+  background: var(--mg-primary);
+  color: var(--mg-white);
+}
+
+.mg-btn--solid:hover {
+  background: #4d6089;
+  color: var(--mg-white);
+}
+
+.mg-btn--outline {
+  border: 1px solid var(--mg-primary-alt);
+  color: var(--mg-primary-alt);
+}
+
+.mg-btn--outline:hover {
+  background: var(--mg-primary-alt);
+  color: var(--mg-white);
+}
+
+/* the arrow ships as a single-colour SVG; invert it when the button flips */
+.mg-btn--outline:hover img {
+  filter: brightness(0) invert(1);
+}
+
+/*------------------------------------------------------------------
+  04. Navbar — Figma 1:9608
+------------------------------------------------------------------*/
+.mg-nav {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: var(--mg-white);
+  border-bottom: 1px solid transparent;
+  transition: box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.mg-nav.is-stuck {
+  box-shadow: 0 1px 16px rgba(15, 23, 42, 0.07);
+  border-bottom-color: var(--mg-border);
+}
+
+.mg-nav__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 88px;
+}
+
+.mg-nav__logo img {
+  width: 197px;
+  height: 45px;
+  object-fit: contain;
+  object-position: left center;
+}
+
+.mg-nav__menu {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.mg-nav__item {
+  position: relative;
+}
+
+.mg-nav__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 300;
+  color: #0f172a;
+  transition: color 0.2s ease;
+}
+
+.mg-nav__link:hover {
+  color: var(--mg-primary-alt);
+}
+
+/* Figma flips this chevron on the Y axis (-scale-y-100), so it points down. */
+.mg-nav__link img {
+  width: 14px;
+  height: 14px;
+  transform: scaleY(-1);
+  transition: transform 0.25s ease;
+}
+
+.mg-nav__item:hover > .mg-nav__link img {
+  transform: scaleY(1);
+}
+
+/* dropdown panel — the Figma chevrons imply a submenu; kept minimal */
+.mg-nav__drop {
+  position: absolute;
+  top: calc(100% + 12px);
+  left: 0;
+  min-width: 220px;
+  padding: 12px 0;
+  background: var(--mg-white);
+  border: 1px solid var(--mg-border);
+  border-radius: 12px;
+  box-shadow: 0 12px 32px rgba(15, 23, 42, 0.1);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(8px);
+  transition: opacity 0.22s ease, transform 0.22s ease, visibility 0.22s;
+}
+
+.mg-nav__item:hover > .mg-nav__drop,
+.mg-nav__item:focus-within > .mg-nav__drop {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.mg-nav__drop a {
+  display: block;
+  padding: 8px 20px;
+  font-size: 15px;
+  font-weight: 300;
+  color: #0f172a;
+}
+
+.mg-nav__drop a:hover {
+  background: var(--mg-surface-blue);
+  color: var(--mg-primary-alt);
+}
+
+.mg-nav__toggle {
+  display: none;
+  width: 44px;
+  height: 44px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  border: 1px solid var(--mg-border);
+}
+
+.mg-nav__toggle span {
+  position: relative;
+  display: block;
+  width: 20px;
+  height: 2px;
+  background: #0f172a;
+}
+
+.mg-nav__toggle span::before,
+.mg-nav__toggle span::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 20px;
+  height: 2px;
+  background: #0f172a;
+}
+
+.mg-nav__toggle span::before {
+  top: -6px;
+}
+
+.mg-nav__toggle span::after {
+  top: 6px;
+}
+
+/*------------------------------------------------------------------
+  05. Hero — Figma 1:9631
+------------------------------------------------------------------*/
+.mg-hero {
+  padding-top: 0;
+}
+
+.mg-hero__inner {
+  position: relative;
+  min-height: 583px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  border-radius: var(--mg-radius);
+  background: #0b1a33 url("../images/figma/hero-bg.png") center / cover no-repeat;
+}
+
+.mg-hero__content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  width: 100%;
+  max-width: 1113px;
+  margin: 0 auto;
+  padding: 60px 44px;
+  color: var(--mg-white);
+}
+
+.mg-hero__title {
+  margin: 0 0 25px;
+  font-size: 60px;
+  line-height: 70px;
+  font-weight: 400;
+  color: var(--mg-white);
+}
+
+.mg-hero__subtitle {
+  font-size: 18px;
+  line-height: 30px;
+  color: var(--mg-white);
+}
+
+.mg-hero__actions {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  align-items: flex-start;
+}
+
+.mg-hero__rule {
+  width: 100%;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.mg-hero__proof {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.mg-avatars {
+  display: flex;
+  align-items: center;
+}
+
+.mg-avatars__item {
+  width: 56px;
+  height: 56px;
+  margin-right: -9px;
+  border-radius: 40px;
+  border: 2px solid var(--mg-white);
+  background: var(--mg-surface-tint);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+}
+
+.mg-avatars__item:nth-child(even) {
+  background: var(--mg-white);
+  border-color: var(--mg-surface-tint);
+}
+
+.mg-avatars__item img {
+  width: 76%;
+  height: auto;
+  object-fit: contain;
+}
+
+.mg-avatars__count {
+  margin-right: 0;
+  background: var(--mg-primary);
+  border-color: var(--mg-white);
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 600;
+  color: var(--mg-white);
+}
+
+.mg-rating__stars {
+  display: flex;
+  align-items: center;
+  gap: 0;
+}
+
+.mg-rating__stars img {
+  width: 20px;
+  height: 21px;
+}
+
+.mg-rating__label {
+  margin-top: 4px;
+  font-size: 14px;
+  line-height: 20px;
+  color: var(--mg-gold);
+}
+
+/*------------------------------------------------------------------
+  06. Stats bar — Figma 1:9683
+------------------------------------------------------------------*/
+.mg-stats {
+  padding-top: 20px;
+}
+
+.mg-stats__inner {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  min-height: 141px;
+  padding: 24px 36px;
+  border-radius: var(--mg-radius);
+  background: var(--mg-surface-blue);
+}
+
+.mg-stats__title {
+  flex: none;
+  width: 255px;
+  font-size: 24px;
+  line-height: 38px;
+  color: var(--mg-body);
+}
+
+.mg-stats__list {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  flex: 1 1 auto;
+}
+
+.mg-stats__divider {
+  width: 1px;
+  height: 70px;
+  flex: none;
+  background: var(--mg-border-strong);
+}
+
+.mg-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.mg-stat__value {
+  display: flex;
+  align-items: baseline;
+  gap: 5px;
+  color: var(--mg-title);
+}
+
+.mg-stat__num {
+  font-size: 40px;
+  line-height: 1.2;
+  font-weight: 500;
+}
+
+.mg-stat__unit {
+  font-size: 28px;
+  line-height: 1.2;
+  font-weight: 300;
+}
+
+.mg-stat__label {
+  font-size: 20px;
+  line-height: 30px;
+  font-weight: 300;
+  color: var(--mg-primary);
+  white-space: nowrap;
+}
+
+/*------------------------------------------------------------------
+  07. Six strengths — Figma 1:9779 + 1:9721
+------------------------------------------------------------------*/
+.mg-strengths {
+  padding: 110px 0 0;
+}
+
+.mg-strengths .mg-head {
+  max-width: 781px;
+  margin: 0 auto 40px;
+}
+
+.mg-strengths-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.mg-card {
+  display: flex;
+  flex-direction: column;
+  min-height: 298px;
+  padding: 29px 26px 30px;
+  background: var(--mg-white);
+  border: 1px solid var(--mg-border);
+  border-radius: var(--mg-radius);
+  transition: box-shadow 0.3s ease, transform 0.3s ease, border-color 0.3s ease;
+}
+
+.mg-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--mg-surface-tint);
+  box-shadow: 0 18px 40px rgba(91, 111, 154, 0.12);
+}
+
+.mg-card__icon {
+  width: 56px;
+  height: 56px;
+  margin-bottom: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  overflow: hidden;
+  flex: none;
+}
+
+.mg-card__icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: left center;
+}
+
+.mg-card__title {
+  margin: 0 0 12px;
+  font-size: 24px;
+  line-height: 34.8px;
+  font-weight: 300;
+  color: var(--mg-title);
+  text-transform: capitalize;
+}
+
+.mg-card__text {
+  font-size: 18px;
+  line-height: 25.2px;
+  color: var(--mg-body);
+}
+
+/*------------------------------------------------------------------
+  08. About — Figma 1:9782
+------------------------------------------------------------------*/
+.mg-about {
+  padding: 80px 0 0;
+}
+
+.mg-about__inner {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  align-items: flex-start;
+}
+
+.mg-about__body {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.mg-about__body p + p {
+  margin-top: 0;
+}
+
+/*------------------------------------------------------------------
+  09. Brand carousel — Figma 1:9789 (Component 2)
+------------------------------------------------------------------*/
+.mg-brands {
+  padding: 90px 0 0;
+}
+
+.mg-brands__viewport {
+  overflow: hidden;
+}
+
+.mg-brands .swiper-wrapper {
+  align-items: flex-start;
+}
+
+.mg-brands .swiper-slide {
+  width: 288px;
+  height: auto;
+  flex: none;
+}
+
+/* two-card stack (630px column) */
+.mg-bslide {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* single tall card, dropped 90px like the Figma offset rows */
+.mg-bslide--offset {
+  margin-top: 90px;
+}
+
+.mg-bcard {
+  position: relative;
+  width: 288px;
+  border-radius: var(--mg-radius);
+  overflow: hidden;
+  display: block;
+}
+
+.mg-bcard--photo-sm {
+  height: 322px;
+}
+
+.mg-bcard--photo-lg {
+  height: 450px;
+}
+
+.mg-bcard--stat {
+  height: 288px;
+}
+
+.mg-bcard__img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.mg-bcard:hover .mg-bcard__img {
+  transform: scale(1.05);
+}
+
+.mg-bcard__cover {
+  position: absolute;
+  inset: 0;
+}
+
+.mg-bcard__body {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 12px;
+  padding: 24px;
+  color: var(--mg-white);
+}
+
+.mg-bcard__body--center {
+  align-items: center;
+  text-align: center;
+}
+
+.mg-bcard__kicker {
+  font-size: 23.4px;
+  line-height: 28.8px;
+  font-weight: 900;
+  letter-spacing: 0.2076px;
+  color: var(--mg-white);
+}
+
+.mg-bcard__logo {
+  height: 74px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mg-bcard__logo img {
+  max-height: 74px;
+  width: auto;
+  object-fit: contain;
+}
+
+.mg-tag {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 28px;
+  padding: 0 8px;
+  border: 1px solid var(--mg-white);
+  border-radius: 320px;
+  font-size: 14.6px;
+  line-height: 17.6px;
+  color: var(--mg-white);
+  white-space: nowrap;
+}
+
+/* stat card (gradient tile) */
+.mg-bcard--stat .mg-bcard__body {
+  justify-content: flex-end;
+  gap: 20px;
+}
+
+.mg-bcard__num {
+  font-size: 61.9px;
+  line-height: 72px;
+  color: #faf9f7;
+}
+
+.mg-bcard__caption {
+  font-size: 20px;
+  line-height: 26.8px;
+  text-transform: uppercase;
+  color: #faf9f7;
+}
+
+/* gradients lifted verbatim from the Figma fills */
+.mg-grad-karji    { background: linear-gradient(180deg, #e8b48f 10%, #805439 90%); }
+.mg-grad-daima    { background: linear-gradient(180deg, #57b6b1 10%, #005f48 90%); }
+.mg-grad-flower   { background: linear-gradient(180deg, #39cbd5 10%, #195657 90%); }
+.mg-grad-saleel   { background: linear-gradient(35.8deg, #ffc300 8.44%, #064e4f 88.17%); }
+.mg-grad-oud      { background: linear-gradient(180deg, #b7a06e 10%, #604d24 90%); }
+.mg-grad-atelier  { background: linear-gradient(180deg, #d1c4b3 10%, #5a5143 90%); }
+
+.mg-cov-karji-store { background: linear-gradient(213.56deg, rgba(255,255,255,0) 40%, #6c462f 100%); }
+.mg-cov-karji-bag   { background: linear-gradient(208.4deg, rgba(255,255,255,0) 0%, rgba(199,180,168,0.44) 44.25%, #805439 93.46%); }
+.mg-cov-daima       { background: linear-gradient(198.37deg, rgba(255,255,255,0) 29.92%, #57b6b1 86.73%); }
+.mg-cov-daima-gift  { background: linear-gradient(203.78deg, rgba(255,255,255,0) 0%, rgba(29,72,106,0.8) 84.24%); }
+.mg-cov-flower      { background: linear-gradient(213.56deg, rgba(255,255,255,0) 40%, #5a3600 100%); }
+.mg-cov-flowers     { background: linear-gradient(205.39deg, rgba(255,255,255,0) 40%, #155355 100%); }
+.mg-cov-saleel      { background: linear-gradient(213.56deg, rgba(255,255,255,0) 40%, #f59e0b 100%); }
+.mg-cov-saleel-bot  { background: linear-gradient(205.39deg, rgba(255,255,255,0) 40%, #ff9900 100%); }
+.mg-cov-oud5048     { background: linear-gradient(215.56deg, rgba(255,255,255,0) 2.57%, #3c171f 94.2%); }
+.mg-cov-touchofoud  { background: linear-gradient(205.39deg, rgba(255,255,255,0) 40%, #b69f6f 100%); }
+.mg-cov-atelier     { background: linear-gradient(213.56deg, rgba(255,255,255,0) 40%, #3d362b 100%); }
+.mg-cov-atelier-shop{ background: linear-gradient(205.39deg, rgba(255,255,255,0) 40%, #68685a 100%); }
+
+/*------------------------------------------------------------------
+  10. Global presence + map — Figma 1:9790 + 1:9793
+------------------------------------------------------------------*/
+.mg-presence {
+  padding: 110px 0 0;
+}
+
+.mg-presence .mg-head {
+  margin-bottom: 10px;
+}
+
+.mg-map {
+  padding: 0 0 40px;
+}
+
+.mg-map__figure {
+  margin: 0;
+}
+
+.mg-map__figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/*------------------------------------------------------------------
+  11. Trusted by / testimonial + logo grid — Figma 1:13354
+------------------------------------------------------------------*/
+.mg-trusted {
+  padding: 40px 0 0;
+}
+
+.mg-trusted__panel {
+  position: relative;
+  border: 1px solid var(--mg-border);
+  border-radius: var(--mg-radius);
+  overflow: hidden;
+  background: var(--mg-white);
+}
+
+.mg-trusted__bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 605px;
+  object-fit: cover;
+  pointer-events: none;
+}
+
+.mg-trusted__head {
+  position: relative;
+  z-index: 1;
+  padding: 41px 39px 0;
+  max-width: 780px;
+}
+
+.mg-trusted__head .mg-lead {
+  margin-top: 25px;
+}
+
+.mg-testimonial {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 620px 1fr;
+  gap: 33px;
+  align-items: center;
+  padding: 40px 39px 0;
+}
+
+.mg-testimonial__media {
+  height: 300px;
+  border: 1px solid var(--mg-border);
+  border-radius: var(--mg-radius);
+  overflow: hidden;
+  background: var(--mg-surface);
+}
+
+.mg-testimonial__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.mg-testimonial__quote {
+  font-size: 18px;
+  line-height: 30px;
+  color: var(--mg-body);
+}
+
+.mg-testimonial__name {
+  margin-top: 28px;
+  font-size: 20px;
+  line-height: 30px;
+  color: var(--mg-title);
+}
+
+.mg-testimonial__role {
+  font-size: 16px;
+  line-height: 30px;
+  font-style: italic;
+  color: var(--mg-body);
+}
+
+.mg-testimonial__nav {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.mg-navbtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  padding: 16px;
+  border-radius: 56px;
+  background: var(--mg-surface-chip);
+  transition: background-color 0.25s ease, opacity 0.25s ease;
+}
+
+.mg-navbtn img {
+  width: 24px;
+  height: 24px;
+}
+
+.mg-navbtn--active {
+  background: var(--mg-primary-alt);
+}
+
+.mg-navbtn:hover {
+  background: var(--mg-primary-alt);
+}
+
+.mg-navbtn:hover img {
+  filter: brightness(0) invert(1);
+}
+
+/* Only dim when there genuinely is nowhere to go. With a single testimonial
+   Swiper also adds .swiper-button-lock — in that case keep the design's
+   full-strength arrows rather than showing two greyed-out buttons. */
+.mg-navbtn.swiper-button-disabled:not(.swiper-button-lock) {
+  opacity: 0.45;
+  cursor: default;
+}
+
+.mg-filters {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  padding: 60px 20px 40px;
+}
+
+.mg-filter {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  padding: 12px 24px;
+  border: 1px solid var(--mg-primary-alt);
+  border-radius: var(--mg-pill);
+  font-size: 16px;
+  line-height: 24px;
+  color: var(--mg-primary-alt);
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+.mg-filter:hover {
+  background: rgba(95, 118, 171, 0.08);
+}
+
+.mg-filter.is-active {
+  background: var(--mg-primary);
+  border-color: var(--mg-primary);
+  color: var(--mg-white);
+}
+
+.mg-logogrid {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1px;
+  background: var(--mg-surface-tint);
+  border-radius: var(--mg-radius);
+  overflow: hidden;
+}
+
+.mg-logogrid__cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 109px;
+  padding: 24px 48px;
+  background: var(--mg-white);
+}
+
+.mg-logogrid__cell img {
+  max-width: 100%;
+  max-height: 80px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+
+.mg-logogrid__more {
+  font-size: 16px;
+  line-height: 30px;
+  font-style: italic;
+  color: var(--mg-body);
+}
+
+/* hidden by the filter buttons */
+.mg-logogrid__cell.is-hidden {
+  display: none;
+}
+
+/*------------------------------------------------------------------
+  12. Team — Figma 1:13494
+------------------------------------------------------------------*/
+.mg-team {
+  padding: 110px 0 0;
+}
+
+.mg-team .mg-head {
+  margin-bottom: 0;
+}
+
+.mg-team__link {
+  color: var(--mg-primary-alt);
+  text-decoration: underline;
+  text-transform: capitalize;
+}
+
+.mg-team__stage {
+  position: relative;
+  margin-top: 40px;
+  height: 716px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+}
+
+.mg-team__canvas {
+  position: relative;
+  width: 2249px;
+  height: 716px;
+}
+
+.mg-team__strip {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 2249px;
+  height: 312px;
+  object-fit: cover;
+}
+
+.mg-team__photo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 2249px;
+  height: 716px;
+  object-fit: cover;
+}
+
+/* hotspot: 269px wide box whose dot sits dead centre, 37px across */
+.mg-point {
+  position: absolute;
+  width: 269px;
+  height: 119px;
+}
+
+.mg-point__dot {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 37px;
+  height: 37px;
+  cursor: pointer;
+}
+
+.mg-point__dot img {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.mg-point__pop {
+  position: absolute;
+  top: 45px;
+  left: 0;
+  width: 100%;
+  padding: 20px 16px 16px;
+  background: var(--mg-white);
+  border: 1px solid var(--mg-border-grey);
+  border-radius: 12px;
+  filter: drop-shadow(0 4px 19.65px rgba(0, 0, 0, 0.12));
+  text-align: center;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(6px);
+  transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s;
+  pointer-events: none;
+}
+
+.mg-point:hover .mg-point__pop,
+.mg-point:focus-within .mg-point__pop {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.mg-point__pop::before {
+  content: "";
+  position: absolute;
+  top: -9px;
+  left: 50%;
+  transform: translateX(-50%) rotate(45deg);
+  width: 16px;
+  height: 16px;
+  background: var(--mg-white);
+  border-left: 1px solid var(--mg-border-grey);
+  border-top: 1px solid var(--mg-border-grey);
+}
+
+.mg-point__name {
+  margin: 0;
+  font-size: 20px;
+  line-height: 20px;
+  font-weight: 600;
+  color: var(--mg-title);
+  text-transform: capitalize;
+}
+
+.mg-point__role {
+  margin: 2px 0 0;
+  font-size: 12px;
+  line-height: 14px;
+  color: var(--mg-primary-alt);
+}
+
+/*------------------------------------------------------------------
+  13. Insights — Figma 1:13462
+------------------------------------------------------------------*/
+.mg-insights {
+  padding: 110px 0 0;
+}
+
+.mg-insights__head {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  margin-bottom: 40px;
+}
+
+.mg-insights__grid {
+  display: grid;
+  grid-template-columns: 585px 1fr;
+  gap: 37px;
+  align-items: start;
+  padding: 0;
+}
+
+.mg-feature {
+  position: relative;
+  height: 585px;
+  border-radius: var(--mg-radius);
+  overflow: hidden;
+  display: block;
+}
+
+.mg-feature img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.7s ease;
+}
+
+.mg-feature:hover img {
+  transform: scale(1.04);
+}
+
+.mg-feature__scrim {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.85) 2.3%, rgba(102, 102, 102, 0) 100%);
+  opacity: 0.85;
+}
+
+.mg-feature__badge {
+  position: absolute;
+  top: 31px;
+  left: 37px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 36px;
+  padding: 0 26px;
+  border: 1px solid #ebeef3;
+  border-radius: 60px;
+  font-size: 20px;
+  font-weight: 500;
+  color: #ebeef3;
+  text-transform: capitalize;
+}
+
+.mg-feature__meta {
+  position: absolute;
+  left: 37px;
+  bottom: 76px;
+  font-size: 18px;
+  color: var(--mg-white);
+}
+
+.mg-feature__title {
+  position: absolute;
+  left: 37px;
+  right: 37px;
+  bottom: 28px;
+  margin: 0;
+  font-size: 26px;
+  font-weight: 400;
+  color: var(--mg-white);
+  text-transform: capitalize;
+}
+
+.mg-postlist {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 40px;
+  height: 585px;
+  padding: 27px 36px 27px 0;
+}
+
+.mg-post {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: 20px;
+  align-items: center;
+}
+
+.mg-post__media {
+  height: 150px;
+  border-radius: var(--mg-radius-sm);
+  overflow: hidden;
+}
+
+.mg-post__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.mg-post:hover .mg-post__media img {
+  transform: scale(1.06);
+}
+
+.mg-post__date {
+  margin: 0 0 8px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--mg-primary-alt);
+}
+
+.mg-post__title {
+  margin: 0;
+  font-size: 18px;
+  line-height: 1.369;
+  font-weight: 400;
+  color: var(--mg-title);
+}
+
+/* the whole insights block sits on a tinted rounded panel */
+.mg-insights__panel {
+  background: var(--mg-surface);
+  border-radius: var(--mg-radius);
+  padding: 0;
+  overflow: hidden;
+}
+
+/*------------------------------------------------------------------
+  14. Footer — Figma 1:13518
+------------------------------------------------------------------*/
+.mg-footer {
+  position: relative;
+  margin-top: 110px;
+  padding-top: 64px;
+  background: var(--mg-surface);
+  overflow: hidden;
+}
+
+.mg-footer__newsletter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  padding-bottom: 37px;
+  border-bottom: 1px solid var(--mg-border-strong);
+}
+
+.mg-footer__nl-copy h2 {
+  margin: 0;
+  font-size: 25px;
+  line-height: 32px;
+  font-weight: 400;
+  color: var(--mg-title);
+  letter-spacing: 0.257px;
+}
+
+.mg-footer__nl-copy p {
+  margin-top: 3.5px;
+  font-size: 16px;
+  line-height: 24px;
+  color: var(--mg-body-soft);
+}
+
+.mg-nlform {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: none;
+}
+
+.mg-nlform input {
+  width: 438px;
+  max-width: 100%;
+  height: 56px;
+  padding: 0 24px;
+  border: 1px solid transparent;
+  border-radius: 50px;
+  background: var(--mg-white);
+  font-size: 15px;
+  line-height: 19.2px;
+  color: var(--mg-title);
+  outline: none;
+  transition: border-color 0.25s ease;
+}
+
+.mg-nlform input::placeholder {
+  color: var(--mg-title);
+  opacity: 0.65;
+}
+
+.mg-nlform input:focus {
+  border-color: var(--mg-primary-alt);
+}
+
+.mg-nlform button {
+  width: 150px;
+  height: 56px;
+  border-radius: 38px;
+  background: var(--mg-primary-alt);
+  color: var(--mg-white);
+  font-size: 16px;
+  line-height: 20px;
+  text-transform: capitalize;
+  transition: background-color 0.25s ease;
+}
+
+.mg-nlform button:hover {
+  background: #4d6089;
+}
+
+.mg-footer__about {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 40px;
+  padding: 36px 0 37px;
+  border-bottom: 1px solid var(--mg-border-strong);
+}
+
+.mg-footer__brand {
+  flex: 0 0 280px;
+  max-width: 280px;
+}
+
+.mg-footer__brand img {
+  width: 197px;
+  height: 45px;
+  object-fit: contain;
+  object-position: left center;
+}
+
+.mg-footer__brand p {
+  margin-top: 20px;
+  font-size: 16px;
+  line-height: 24px;
+  color: var(--mg-body);
+}
+
+.mg-contacts {
+  display: flex;
+  gap: 40px;
+  flex: 1 1 auto;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+}
+
+.mg-contact {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  max-width: 278px;
+}
+
+.mg-contact img {
+  width: 38px;
+  height: 38px;
+  flex: none;
+}
+
+.mg-contact__label {
+  font-size: 14px;
+  line-height: 20px;
+  color: var(--mg-title);
+}
+
+.mg-contact__value {
+  font-size: 16px;
+  line-height: 24px;
+  color: var(--mg-body);
+}
+
+.mg-footer__links {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 40px 63px;
+  padding: 40px 0 36px;
+}
+
+.mg-linkcol h3 {
+  margin: 0 0 20px;
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 600;
+  color: var(--mg-title);
+}
+
+.mg-linkcol li + li {
+  margin-top: 16px;
+}
+
+.mg-linkcol a {
+  font-size: 14px;
+  line-height: 20px;
+  color: var(--mg-body);
+  transition: color 0.2s ease;
+}
+
+.mg-linkcol a:hover {
+  color: var(--mg-primary-alt);
+}
+
+.mg-footer__bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 22px 0 30px;
+  border-top: 1px solid var(--mg-border-strong);
+}
+
+.mg-footer__copy {
+  font-size: 14px;
+  color: var(--mg-body);
+}
+
+.mg-socials {
+  display: inline-flex;
+  align-items: center;
+  gap: 40px;
+}
+
+.mg-socials a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  opacity: 0.75;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.mg-socials a:hover {
+  opacity: 1;
+  transform: translateY(-2px);
+}
+
+.mg-socials img {
+  max-width: 16px;
+  max-height: 16px;
+}
+
+.mg-footer__wordmark {
+  display: block;
+  width: 100%;
+  height: 160px;
+  object-fit: contain;
+  object-position: center bottom;
+  pointer-events: none;
+  user-select: none;
+}
+
+/*------------------------------------------------------------------
+  15. Responsive
+------------------------------------------------------------------*/
+@media (max-width: 1279px) {
+  .mg-testimonial {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .mg-insights__grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .mg-feature,
+  .mg-postlist {
+    height: auto;
+  }
+
+  .mg-feature {
+    min-height: 480px;
+  }
+}
+
+@media (max-width: 1199px) {
+  .mg-nav__menu {
+    gap: 22px;
+  }
+
+  .mg-hero__title {
+    font-size: 48px;
+    line-height: 58px;
+  }
+
+  .mg-h2 {
+    font-size: 40px;
+    line-height: 50px;
+  }
+
+  .mg-stats__inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+  }
+
+  .mg-stats__title {
+    width: auto;
+  }
+
+  .mg-stats__list {
+    width: 100%;
+    justify-content: space-between;
+    gap: 20px;
+  }
+
+  .mg-logogrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .mg-footer__links {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 991px) {
+  .mg-nav__menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+    padding: 12px 20px 20px;
+    background: var(--mg-white);
+    border-bottom: 1px solid var(--mg-border);
+    box-shadow: 0 16px 32px rgba(15, 23, 42, 0.08);
+    display: none;
+  }
+
+  .mg-nav__menu.is-open {
+    display: flex;
+  }
+
+  .mg-nav__item {
+    width: 100%;
+    padding: 10px 0;
+  }
+
+  .mg-nav__drop {
+    position: static;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    box-shadow: none;
+    border: 0;
+    padding: 6px 0 0 12px;
+    min-width: 0;
+    display: none;
+  }
+
+  .mg-nav__item.is-open > .mg-nav__drop {
+    display: block;
+  }
+
+  .mg-nav__toggle {
+    display: inline-flex;
+  }
+
+  .mg-strengths-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .mg-testimonial,
+  .mg-insights__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .mg-testimonial__media {
+    height: 260px;
+  }
+
+  .mg-postlist {
+    padding: 0 0 27px;
+  }
+
+  .mg-footer__about {
+    flex-direction: column;
+  }
+
+  .mg-contacts {
+    justify-content: flex-start;
+  }
+
+  .mg-footer__newsletter {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .mg-nlform {
+    width: 100%;
+  }
+
+  .mg-nlform input {
+    flex: 1 1 auto;
+    width: auto;
+  }
+
+  .mg-footer__wordmark {
+    height: 90px;
+  }
+}
+
+@media (max-width: 767px) {
+  .mg-nav__inner {
+    height: 72px;
+  }
+
+  .mg-nav__logo img {
+    width: 158px;
+    height: 36px;
+  }
+
+  .mg-hero__inner {
+    min-height: 0;
+    border-radius: 12px;
+  }
+
+  .mg-hero__content {
+    padding: 48px 24px;
+    gap: 36px;
+  }
+
+  .mg-hero__title {
+    font-size: 34px;
+    line-height: 44px;
+  }
+
+  .mg-h2 {
+    font-size: 30px;
+    line-height: 40px;
+  }
+
+  .mg-lead {
+    font-size: 16px;
+    line-height: 27px;
+  }
+
+  .mg-stats__list {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+
+  .mg-stats__divider {
+    width: 100%;
+    height: 1px;
+  }
+
+  .mg-strengths,
+  .mg-presence,
+  .mg-team,
+  .mg-insights {
+    padding-top: 70px;
+  }
+
+  .mg-strengths-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .mg-logogrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .mg-trusted__head,
+  .mg-testimonial {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .mg-post {
+    grid-template-columns: 1fr;
+  }
+
+  .mg-post__media {
+    height: 190px;
+  }
+
+  .mg-footer__links {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .mg-footer__bar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .mg-socials {
+    gap: 28px;
+  }
+
+  .mg-footer__wordmark {
+    height: 56px;
+  }
+}
+
+@media (max-width: 575px) {
+  .mg-hero__proof {
+    gap: 12px;
+  }
+
+  .mg-btn {
+    height: 50px;
+    padding: 12px 20px;
+  }
+
+  .mg-feature {
+    min-height: 380px;
+  }
+
+  .mg-feature__title {
+    font-size: 20px;
+  }
+}
+
+/*------------------------------------------------------------------
+  16. Reduced motion
+------------------------------------------------------------------*/
+@media (prefers-reduced-motion: reduce) {
+  body.mg-page *,
+  body.mg-page *::before,
+  body.mg-page *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

@@ -1,0 +1,664 @@
+@charset "utf-8";
+/*==================================================================
+  Maylaa International — inner pages
+  Loaded AFTER maylaa-home.css, which owns the tokens, the navbar,
+  the footer and the shared button/heading/card primitives.
+
+  Nothing here overrides a home-page rule. These are additive
+  components built from the same tokens so the inner pages read as
+  the same product:
+
+    .mg-phero      page banner
+    .mg-section    vertical rhythm wrapper
+    .mg-prose      long-form copy
+    .mg-split      two-column copy block
+    .mg-valuegrid  numbered value / differentiator cards
+    .mg-vcard      business-vertical card
+    .mg-pilllist   brand-name lists
+    .mg-infocard   contact detail cards
+    .mg-form       contact form
+    .mg-cta        closing call-to-action band
+==================================================================*/
+
+/*------------------------------------------------------------------
+  01. Page banner
+------------------------------------------------------------------*/
+.mg-phero {
+  padding: 72px 0 0;
+}
+
+.mg-phero__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding: 64px 40px 68px;
+  text-align: center;
+  border-radius: var(--mg-radius);
+  background: var(--mg-surface-blue);
+}
+
+.mg-crumbs {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  line-height: 20px;
+  color: var(--mg-body);
+}
+
+.mg-crumbs a:hover {
+  color: var(--mg-primary-alt);
+}
+
+.mg-crumbs span[aria-current] {
+  color: var(--mg-primary-alt);
+}
+
+.mg-crumbs__sep {
+  opacity: 0.5;
+}
+
+.mg-phero .mg-lead {
+  max-width: 780px;
+}
+
+/*------------------------------------------------------------------
+  02. Rhythm + prose
+------------------------------------------------------------------*/
+.mg-section {
+  padding: 90px 0 0;
+}
+
+.mg-section--tight {
+  padding-top: 56px;
+}
+
+.mg-section .mg-head {
+  margin-bottom: 40px;
+}
+
+.mg-prose {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  font-size: 18px;
+  line-height: 30px;
+  color: var(--mg-body);
+}
+
+.mg-prose strong {
+  color: var(--mg-title);
+  font-weight: 500;
+}
+
+/*------------------------------------------------------------------
+  03. Two-column copy block
+------------------------------------------------------------------*/
+.mg-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: start;
+}
+
+.mg-split--media {
+  align-items: center;
+}
+
+.mg-split__media {
+  border-radius: var(--mg-radius);
+  overflow: hidden;
+  background: var(--mg-surface);
+}
+
+.mg-split__media img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 380px;
+  object-fit: cover;
+}
+
+/*------------------------------------------------------------------
+  04. Numbered value cards
+------------------------------------------------------------------*/
+.mg-valuegrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.mg-valuegrid--4 {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.mg-valuegrid--2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.mg-valuegrid--spaced {
+  margin-top: 40px;
+}
+
+.mg-value {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 32px 28px;
+  background: var(--mg-white);
+  border: 1px solid var(--mg-border);
+  border-radius: var(--mg-radius);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.mg-value:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 40px rgba(91, 111, 154, 0.12);
+}
+
+.mg-value__index {
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  color: var(--mg-primary-alt);
+}
+
+.mg-value__title {
+  margin: 0;
+  font-size: 22px;
+  line-height: 32px;
+  font-weight: 300;
+  color: var(--mg-title);
+}
+
+.mg-value__text {
+  font-size: 16px;
+  line-height: 26px;
+  color: var(--mg-body);
+}
+
+/*------------------------------------------------------------------
+  05. Business vertical card
+------------------------------------------------------------------*/
+.mg-vgrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.mg-vcard {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 36px 32px;
+  background: var(--mg-white);
+  border: 1px solid var(--mg-border);
+  border-radius: var(--mg-radius);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.mg-vcard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 40px rgba(91, 111, 154, 0.12);
+}
+
+.mg-vcard__icon {
+  width: 56px;
+  height: 56px;
+  margin-bottom: 6px;
+}
+
+.mg-vcard__icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: left center;
+}
+
+.mg-vcard__title {
+  margin: 0;
+  font-size: 24px;
+  line-height: 34.8px;
+  font-weight: 300;
+  color: var(--mg-title);
+}
+
+.mg-vcard__text {
+  font-size: 18px;
+  line-height: 28px;
+  color: var(--mg-body);
+}
+
+.mg-vcard__link {
+  margin-top: auto;
+  padding-top: 12px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 16px;
+  color: var(--mg-primary-alt);
+}
+
+.mg-vcard__link img {
+  width: 16px;
+  height: 16px;
+  transition: transform 0.25s ease;
+}
+
+.mg-vcard__link:hover img {
+  transform: translateX(4px);
+}
+
+/*------------------------------------------------------------------
+  06. Retail brand cards (image-led)
+------------------------------------------------------------------*/
+.mg-bgrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.mg-brandcard {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background: var(--mg-white);
+  border: 1px solid var(--mg-border);
+  border-radius: var(--mg-radius);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.mg-brandcard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 40px rgba(91, 111, 154, 0.12);
+}
+
+.mg-brandcard__media {
+  height: 220px;
+  overflow: hidden;
+}
+
+.mg-brandcard__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.mg-brandcard:hover .mg-brandcard__media img {
+  transform: scale(1.05);
+}
+
+.mg-brandcard__body {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 26px 28px 30px;
+}
+
+.mg-brandcard__title {
+  margin: 0;
+  font-size: 24px;
+  line-height: 34px;
+  font-weight: 300;
+  color: var(--mg-title);
+}
+
+.mg-brandcard__text {
+  font-size: 16px;
+  line-height: 26px;
+  color: var(--mg-body);
+}
+
+.mg-brandcard__url {
+  margin-top: 6px;
+  font-size: 15px;
+  color: var(--mg-primary-alt);
+}
+
+.mg-brandcard__url:hover {
+  text-decoration: underline;
+}
+
+/*------------------------------------------------------------------
+  07. Brand-name pill lists
+------------------------------------------------------------------*/
+.mg-pilllist {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.mg-pilllist li {
+  display: inline-flex;
+  align-items: center;
+  height: 44px;
+  padding: 0 22px;
+  border: 1px solid var(--mg-border-strong);
+  border-radius: var(--mg-pill);
+  background: var(--mg-white);
+  font-size: 16px;
+  line-height: 24px;
+  color: var(--mg-title);
+  transition: border-color 0.25s ease, color 0.25s ease, background-color 0.25s ease;
+}
+
+.mg-pilllist li:hover {
+  border-color: var(--mg-primary-alt);
+  background: var(--mg-surface-blue);
+  color: var(--mg-primary-alt);
+}
+
+/*------------------------------------------------------------------
+  08. Contact
+------------------------------------------------------------------*/
+.mg-contactgrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.mg-infocard {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 32px 28px;
+  background: var(--mg-surface-blue);
+  border-radius: var(--mg-radius);
+}
+
+.mg-infocard img {
+  width: 44px;
+  height: 44px;
+}
+
+.mg-infocard__label {
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 600;
+  color: var(--mg-title);
+}
+
+.mg-infocard__value {
+  font-size: 17px;
+  line-height: 28px;
+  color: var(--mg-body);
+}
+
+a.mg-infocard__value:hover {
+  color: var(--mg-primary-alt);
+}
+
+.mg-formwrap {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: start;
+}
+
+.mg-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.mg-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.mg-field--full {
+  grid-column: 1 / -1;
+}
+
+.mg-field label {
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 500;
+  color: var(--mg-title);
+}
+
+.mg-field input,
+.mg-field textarea,
+.mg-field select {
+  width: 100%;
+  height: 56px;
+  padding: 0 20px;
+  font: inherit;
+  font-size: 16px;
+  color: var(--mg-title);
+  background: var(--mg-white);
+  border: 1px solid var(--mg-border-strong);
+  border-radius: 12px;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.mg-field textarea {
+  height: auto;
+  min-height: 148px;
+  padding: 16px 20px;
+  line-height: 26px;
+  resize: vertical;
+}
+
+.mg-field input::placeholder,
+.mg-field textarea::placeholder {
+  color: var(--mg-body);
+  opacity: 0.7;
+}
+
+.mg-field input:focus,
+.mg-field textarea:focus,
+.mg-field select:focus {
+  border-color: var(--mg-primary-alt);
+  box-shadow: 0 0 0 3px rgba(95, 118, 171, 0.14);
+}
+
+.mg-field input:user-invalid,
+.mg-field textarea:user-invalid {
+  border-color: #c2503f;
+}
+
+.mg-form__actions {
+  grid-column: 1 / -1;
+}
+
+.mg-form__note {
+  grid-column: 1 / -1;
+  font-size: 14px;
+  line-height: 22px;
+  color: var(--mg-body);
+}
+
+.mg-form__status {
+  grid-column: 1 / -1;
+  min-height: 22px;
+  font-size: 15px;
+  line-height: 22px;
+  color: var(--mg-primary-alt);
+}
+
+/*------------------------------------------------------------------
+  09. Events
+------------------------------------------------------------------*/
+.mg-eventlist {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.mg-event {
+  display: grid;
+  grid-template-columns: 300px 1fr auto;
+  gap: 32px;
+  align-items: center;
+  padding: 24px;
+  background: var(--mg-white);
+  border: 1px solid var(--mg-border);
+  border-radius: var(--mg-radius);
+  transition: box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.mg-event:hover {
+  border-color: var(--mg-surface-tint);
+  box-shadow: 0 18px 40px rgba(91, 111, 154, 0.12);
+}
+
+.mg-event__media {
+  height: 180px;
+  border-radius: var(--mg-radius-sm);
+  overflow: hidden;
+}
+
+.mg-event__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.mg-event__date {
+  margin: 0 0 8px;
+  font-size: 14px;
+  font-weight: 500;
+  /* darker than the home page's #5f76ab: at 14px on a light panel that
+     only reaches 4.24:1, short of the 4.5:1 AA threshold. */
+  color: #4a5f8f;
+}
+
+.mg-event__title {
+  margin: 0 0 8px;
+  font-size: 24px;
+  line-height: 34px;
+  font-weight: 300;
+  color: var(--mg-title);
+}
+
+.mg-event__text {
+  font-size: 16px;
+  line-height: 26px;
+  color: var(--mg-body);
+}
+
+.mg-event__tag {
+  display: inline-flex;
+  align-items: center;
+  height: 32px;
+  margin-bottom: 10px;
+  padding: 0 16px;
+  border-radius: var(--mg-pill);
+  background: var(--mg-surface-blue);
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--mg-primary-alt);
+}
+
+/*------------------------------------------------------------------
+  10. Closing CTA band
+------------------------------------------------------------------*/
+.mg-cta {
+  padding: 100px 0 0;
+}
+
+.mg-cta__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  padding: 64px 40px;
+  text-align: center;
+  border-radius: var(--mg-radius);
+  background: var(--mg-surface-blue);
+}
+
+.mg-cta__actions {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/*------------------------------------------------------------------
+  11. Responsive
+------------------------------------------------------------------*/
+@media (max-width: 1199px) {
+  .mg-valuegrid,
+  .mg-valuegrid--4,
+  .mg-bgrid,
+  .mg-contactgrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .mg-event {
+    grid-template-columns: 240px 1fr;
+  }
+
+  .mg-event > .mg-btn {
+    grid-column: 2;
+    justify-self: start;
+  }
+}
+
+@media (max-width: 991px) {
+  .mg-split,
+  .mg-formwrap {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .mg-vgrid {
+    grid-template-columns: 1fr;
+  }
+
+  .mg-split__media img {
+    min-height: 280px;
+  }
+}
+
+@media (max-width: 767px) {
+  .mg-phero {
+    padding-top: 40px;
+  }
+
+  .mg-phero__inner {
+    padding: 44px 22px 48px;
+  }
+
+  .mg-section {
+    padding-top: 64px;
+  }
+
+  .mg-valuegrid,
+  .mg-valuegrid--2,
+  .mg-valuegrid--4,
+  .mg-bgrid,
+  .mg-contactgrid,
+  .mg-form {
+    grid-template-columns: 1fr;
+  }
+
+  .mg-event {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .mg-event > .mg-btn {
+    grid-column: 1;
+  }
+
+  .mg-event__media {
+    height: 200px;
+  }
+
+  .mg-cta {
+    padding-top: 64px;
+  }
+
+  .mg-cta__inner {
+    padding: 44px 22px;
+  }
+}
