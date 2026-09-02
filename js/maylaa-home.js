@@ -59,29 +59,31 @@
     });
   }
 
-  /*----------------------------------------------------------------
-    Brand carousel — Figma 1:9789
-    Slides are a fixed 288px with a 20px gutter, matching the design's
-    288px columns; the offset columns are handled in CSS.
-  ----------------------------------------------------------------*/
-  if (typeof Swiper !== "undefined" && document.getElementById("mgBrands")) {
-    new Swiper("#mgBrands", {
-      slidesPerView: "auto",
-      spaceBetween: 20,
-      grabCursor: true,
-      loop: true,
-      speed: 700,
-      autoplay: {
-        delay: 3200,
-        disableOnInteraction: false,
-        pauseOnMouseEnter: true
-      },
-      breakpoints: {
-        0: { spaceBetween: 12 },
-        768: { spaceBetween: 20 }
-      }
-    });
-  }
+  //brands 
+
+if (typeof Swiper !== "undefined" && document.getElementById("mgBrands")) {
+  new Swiper("#mgBrands", {
+    slidesPerView: "auto",
+    spaceBetween: 20,
+    grabCursor: true,
+    loop: true,
+
+    // Continuous smooth movement
+    speed: 5000,
+
+    autoplay: {
+      delay: 0,
+      disableOnInteraction: false,
+      pauseOnMouseEnter: false
+    },
+
+    breakpoints: {
+      0: { spaceBetween: 12 },
+      768: { spaceBetween: 20 }
+    }
+  });
+}
+
 
   /*----------------------------------------------------------------
     Testimonial slider — Figma 1:13354

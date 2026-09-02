@@ -655,6 +655,10 @@ button {
   height: auto;
   flex: none;
 }
+.mg-brands .swiper-wrapper {
+  transition-timing-function: linear !important;
+}
+
 
 /* two-card stack (630px column) */
 .mg-bslide {
@@ -1792,4 +1796,7 @@ button {
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
+}
+#mgBrands .swiper-wrapper {
+  transition-timing-function: linear !important;
 }

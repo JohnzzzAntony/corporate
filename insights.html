@@ -1,325 +1,735 @@
 <!doctype html>
 <html lang="en">
     <head>
+        <!-- Required meta tags -->
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="description" content="News, milestones, partnerships and global engagements shaping Maylaa International's journey." />
 
+        <!-- Bootstrap CSS -->
+        <link href="css/bootstrap.min.css" rel="stylesheet" />
+        <link href="css/jquery-ui.css" rel="stylesheet" />
+        <!-- Bootstrap Icon CSS -->
+        <link href="css/bootstrap-icons.css" rel="stylesheet" />
+        <!-- CSS -->
+        <link href="css/animate.min.css" rel="stylesheet" />
+        <!-- FancyBox CSS -->
+        <link href="css/jquery.fancybox.min.css" rel="stylesheet" />
+        <!-- Nice Select CSS -->
+        <link href="css/nice-select.css" rel="stylesheet" />
         <!-- Swiper slider CSS -->
         <link rel="stylesheet" href="css/swiper-bundle.min.css" />
-        <!-- Page CSS -->
-        <link rel="stylesheet" href="css/maylaa-home.css" />
-        <link rel="stylesheet" href="css/maylaa-pages.css" />
-
+        <!-- BoxIcon  CSS -->
+        <link href="css/boxicons.min.css" rel="stylesheet" />
+        <!--  Style CSS  -->
+        <link rel="stylesheet" href="css/style.css" />
+        <!-- Title -->
         <title>Insights & Milestones | Maylaa International</title>
-        <link rel="icon" href="images/fav-icon.svg" type="image/svg+xml" sizes="20x20" />
+        <meta name="description" content="News, milestones, partnerships and global engagements shaping Maylaa International's journey." />
+        <link rel="icon" href="images/fav-icon.svg" type="image/gif" sizes="20x20" />
     </head>
 
-    <body class="mg-page">
-        <header class="mg-nav" id="mgNav">
-            <div class="mg-container mg-nav__inner">
-                <a class="mg-nav__logo" href="index.html" aria-label="Maylaa International — home">
-                    <img src="images/header-logo.svg" alt="Maylaa International" width="197" height="45" />
-                </a>
 
-                <button
-                    class="mg-nav__toggle"
-                    type="button"
-                    id="mgNavToggle"
-                    aria-label="Toggle navigation"
-                    aria-expanded="false"
-                    aria-controls="mgNavMenu"
-                >
-                    <span></span>
-                </button>
+    <body class="tt-magic-cursor corporate-consulting-home">
+        <div id="magic-cursor">
+            <div id="ball"></div>
+        </div>
 
-                <nav class="mg-nav__menu" id="mgNavMenu" aria-label="Primary">
-                    <div class="mg-nav__item">
-                        <a class="mg-nav__link" href="index.html">Home</a>
-                    </div>
+        <!-- Back To Top -->
+        <div id="scroll-percentage">
+            <span id="scroll-percentage-value">0%</span>
+            <svg
+                class="arrow"
+                width="14"
+                height="14"
+                viewBox="0 0 14 14"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+            >
+                <g>
+                    <path d="M7 1.55632L14 10.8896L0 10.8896L7 1.55632Z"></path>
+                </g>
+            </svg>
+        </div>
 
-                    <div class="mg-nav__item">
-                        <a class="mg-nav__link" href="about.html">
-                            About
-                            <img src="images/figma/nav-chevron.svg" alt="" aria-hidden="true" />
-                        </a>
-                        <div class="mg-nav__drop">
-                            <a href="about.html#story">Our Story</a>
-                            <a href="about.html#purpose">Purpose &amp; Mission</a>
-                            <a href="about.html#values">Our Values</a>
-                            <a href="about.html#apart">What Sets Us Apart</a>
+        <div id="smooth-wrapper">
+            <div id="smooth-content">
+                <!-- header Section Start-->
+                <div class="home2-header-topbar-wrap">
+                    <div class="topbar-area style-2 d-lg-block d-none">
+                        <div class="container one d-flex flex-nowrap align-items-center justify-content-between">
+                            <div class="company-logo">
+                                <a href="index.html">
+                                    <img alt="image" src="images/header-logo.svg" />
+                                </a>
+                            </div>
+                            <div class="contact-and-office-address-area">
+                                <ul class="contact-list">
+                                    <li>
+                                        <a href="mailto:info@exampleaventis.com">
+                                            <svg
+                                                width="12"
+                                                height="12"
+                                                viewBox="0 0 12 12"
+                                                xmlns="http://www.w3.org/2000/svg"
+                                            >
+                                                <g>
+                                                    <path
+                                                        d="M4.37503 8.80601V11.125C4.37541 11.2038 4.40058 11.2805 4.44697 11.3442C4.49337 11.4079 4.55863 11.4554 4.63352 11.48C4.70841 11.5045 4.78913 11.5049 4.86424 11.4811C4.93935 11.4572 5.00505 11.4103 5.05203 11.347L6.40853 9.50101L4.37503 8.80601ZM11.8425 0.0695066C11.7862 0.0293835 11.7198 0.00562559 11.6508 0.000860511C11.5818 -0.00390457 11.5129 0.0105088 11.4515 0.0425067L0.201529 5.91751C0.1368 5.95172 0.0834665 6.00408 0.0480741 6.06817C0.0126817 6.13226 -0.00322997 6.20529 0.00229183 6.27829C0.00781362 6.3513 0.0345287 6.4211 0.0791584 6.47914C0.123788 6.53718 0.184391 6.58092 0.253529 6.60501L3.38103 7.67401L10.0415 1.97901L4.88753 8.18851L10.129 9.98001C10.181 9.99748 10.2362 10.0034 10.2908 9.99728C10.3453 9.99118 10.3978 9.97324 10.4447 9.94471C10.4916 9.91618 10.5316 9.87775 10.5621 9.83211C10.5925 9.78648 10.6127 9.73473 10.621 9.68051L11.996 0.430507C12.0062 0.362032 11.9973 0.292076 11.9702 0.228368C11.9431 0.164661 11.8989 0.109682 11.8425 0.0695066Z"
+                                                    ></path>
+                                                </g>
+                                            </svg>
+                                            <span>info@maylaainternational.com</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="tel:44800123456">
+                                            <svg
+                                                width="12"
+                                                height="12"
+                                                viewBox="0 0 12 12"
+                                                xmlns="http://www.w3.org/2000/svg"
+                                            >
+                                                <g>
+                                                    <path
+                                                        d="M10.3395 8.352C9.61454 7.73198 8.87885 7.35641 8.16283 7.97549L7.73528 8.34966C7.42246 8.62127 6.84084 9.89034 4.5921 7.30349C2.34383 4.71992 3.68174 4.31766 3.99503 4.04839L4.42492 3.67376C5.1372 3.05327 4.86839 2.27216 4.35468 1.4681L4.04467 0.981074C3.52861 0.178888 2.96666 -0.347941 2.25251 0.27161L1.86664 0.608781C1.55101 0.838713 0.668746 1.58611 0.454736 3.00597C0.197175 4.70962 1.00966 6.66053 2.87113 8.80109C4.73025 10.9426 6.5505 12.0183 8.27476 11.9995C9.70773 11.9841 10.5731 11.2151 10.8438 10.9356L11.2311 10.5979C11.9434 9.97885 11.5008 9.34853 10.7754 8.7271L10.3395 8.352Z"
+                                                    ></path>
+                                                </g>
+                                            </svg>
+                                            <span>+971 4 3588800</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                                <!-- <div class="office-address-area">
+                                <div class="office-address-btn">
+                                    <span>Our office</span>
+                                    <svg width="9" height="9" viewBox="0 0 9 9" xmlns="http://www.w3.org/2000/svg">
+                                        <g>
+                                            <path d="M4.5 8L0 2H9L4.5 8Z"></path>
+                                        </g>
+                                    </svg>
+
+                                </div>
+                                <ul class="office-address-list">
+                                    <li>
+                                        <a href="#">
+                                            <img src="images/united-kingdom-flag.png" alt="">
+                                            United Kingdom
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <img src="images/malaysia-flag.png" alt="">
+                                            Malaysia
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <img src="images/us-flag.png" alt="">
+                                            United States
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <img src="images/france-flag.png" alt="">
+                                            Paris, France
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <img src="images/india-flag.png" alt="">
+                                            India
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div> -->
+                            </div>
                         </div>
                     </div>
-
-                    <div class="mg-nav__item">
-                        <a class="mg-nav__link" href="businesses.html">
-                            Businesses
-                            <img src="images/figma/nav-chevron.svg" alt="" aria-hidden="true" />
-                        </a>
-                        <div class="mg-nav__drop">
-                            <a href="businesses.html#manufacturing">Manufacturing &amp; Production</a>
-                            <a href="businesses.html#retail">Retail Operations</a>
-                            <a href="businesses.html#custom">Customization &amp; Private Label</a>
-                            <a href="businesses.html#sustainability">Sustainability</a>
+                    <header class="style-1 home2-header">
+                        <div class="container one d-flex flex-nowrap align-items-center justify-content-between">
+                            <div class="menu-wrap">
+                                <div class="company-logo d-lg-none d-block">
+                                    <a href="index.html">
+                                        <img alt="image" src="images/header-logo.svg" />
+                                    </a>
+                                </div>
+                                <div class="main-menu">
+                                    <div
+                                        class="mobile-logo-area d-lg-none d-flex align-items-center justify-content-between"
+                                    >
+                                        <a href="index.html" class="mobile-logo-wrap">
+                                            <img alt="image" src="images/header-logo.svg" />
+                                        </a>
+                                        <div class="menu-close-btn">
+                                            <i class="bi bi-x"></i>
+                                        </div>
+                                    </div>
+                                    <ul class="menu-list">
+                                        <li><a href="index.html" class="drop-down">Home</a></li>
+                                        <li class="menu-item-has-children">
+                                            <a href="about.html" class="drop-down">About Us</a>
+                                            <i class="bi bi-plus dropdown-icon"></i>
+                                            <ul class="sub-menu">
+                                                <li><a href="about.html">Who We Are</a></li>
+                                                <li><a href="about.html#story">Our Story</a></li>
+                                                <li><a href="about.html#apart">Leadership</a></li>
+                                                <li><a href="about.html#values">Our Values</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="menu-item-has-children">
+                                            <a href="businesses.html" class="drop-down">Our Businesses</a>
+                                            <i class="bi bi-plus dropdown-icon"></i>
+                                            <ul class="sub-menu">
+                                                <li><a href="businesses.html#retail">Retail</a></li>
+                                                <li><a href="businesses.html#manufacturing">Manufacturing</a></li>
+                                                <li><a href="businesses.html#fitout">Fit-Out</a></li>
+                                                <li><a href="businesses.html#trading">B2B Trading</a></li>
+                                                <li><a href="businesses.html#jewellery">Jewellery</a></li>
+                                                <li><a href="businesses.html#custom">Private Label</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="menu-item-has-children">
+                                            <a href="brands.html" class="drop-down">Our Brands</a>
+                                            <i class="bi bi-plus dropdown-icon"></i>
+                                            <ul class="sub-menu">
+                                                <li><a href="brands.html#retail">Retail Brands</a></li>
+                                                <li><a href="brands.html#international">Distribution Brands</a></li>
+                                                <li><a href="brands.html#inhouse">Brand Portfolio</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="menu-item-has-children">
+                                            <a href="insights.html" class="drop-down">News & Insights</a>
+                                            <i class="bi bi-plus dropdown-icon"></i>
+                                            <ul class="sub-menu">
+                                                <li><a href="insights.html">News</a></li>
+                                                <li><a href="events.html">Events</a></li>
+                                                <li><a href="insights.html#media">Media</a></li>
+                                                <li><a href="insights.html#network">Insights</a></li>
+                                            </ul>
+                                        </li>
+                                        <li><a href="contact.html#enquiry" class="drop-down">Career</a></li>
+                                        <li><a href="contact.html" class="drop-down">Contact</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="nav-right">
+                                <div class="right-sidebar-button">
+                                    <svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                                        <g>
+                                            <path
+                                                d="M4.6142 0.138593C3.82636 -0.0461926 3.00645 -0.0461926 2.21861 0.138593C1.71263 0.257272 1.24984 0.514861 0.882348 0.882352C0.514858 1.24984 0.257268 1.71264 0.138589 2.21862C-0.0461965 3.00645 -0.0461965 3.82636 0.138589 4.6142C0.257268 5.12018 0.514858 5.58297 0.882348 5.95046C1.24984 6.31796 1.71263 6.57554 2.21861 6.69422C3.00645 6.87904 3.82636 6.87904 4.6142 6.69422C5.12017 6.57554 5.58297 6.31796 5.95046 5.95046C6.31795 5.58297 6.57554 5.12018 6.69422 4.6142C6.87904 3.82637 6.87904 3.00645 6.69422 2.21862C6.57554 1.71264 6.31795 1.24984 5.95046 0.882352C5.58297 0.514861 5.12017 0.257272 4.6142 0.138593ZM4.6142 9.30581C3.82636 9.12099 3.00645 9.12099 2.21861 9.30581C1.71263 9.42449 1.24984 9.68208 0.882348 10.0496C0.514858 10.4171 0.257268 10.8799 0.138589 11.3858C-0.0461965 12.1737 -0.0461965 12.9936 0.138589 13.7814C0.257268 14.2874 0.514858 14.7502 0.882348 15.1177C1.24984 15.4852 1.71263 15.7428 2.21861 15.8614C3.00645 16.0462 3.82635 16.0462 4.6142 15.8614C5.12017 15.7428 5.58297 15.4852 5.95046 15.1177C6.31795 14.7502 6.57554 14.2874 6.69422 13.7814C6.87904 12.9936 6.87904 12.1737 6.69422 11.3858C6.57554 10.8799 6.31795 10.4171 5.95046 10.0496C5.58297 9.68208 5.12017 9.42449 4.6142 9.30581ZM13.7814 0.138593C12.9936 -0.0461926 12.1737 -0.0461926 11.3858 0.138593C10.8798 0.257272 10.4171 0.514861 10.0496 0.882352C9.68207 1.24984 9.42448 1.71264 9.3058 2.21862C9.12099 3.00645 9.12099 3.82637 9.3058 4.6142C9.42448 5.12018 9.68207 5.58297 10.0496 5.95046C10.4171 6.31796 10.8798 6.57554 11.3858 6.69422C12.1737 6.87904 12.9936 6.87904 13.7814 6.69422C14.2874 6.57554 14.7502 6.31796 15.1177 5.95046C15.4852 5.58297 15.7428 5.12018 15.8614 4.6142C16.0462 3.82636 16.0462 3.00646 15.8614 2.21862C15.7428 1.71264 15.4852 1.24984 15.1177 0.882352C14.7502 0.514861 14.2874 0.257272 13.7814 0.138593ZM13.7814 9.30581C12.9936 9.12099 12.1737 9.12099 11.3858 9.30581C10.8798 9.42449 10.4171 9.68208 10.0496 10.0496C9.68207 10.4171 9.42448 10.8799 9.3058 11.3858C9.12099 12.1737 9.12099 12.9936 9.3058 13.7814C9.42448 14.2874 9.68207 14.7502 10.0496 15.1177C10.4171 15.4852 10.8798 15.7428 11.3858 15.8614C12.1737 16.0462 12.9936 16.0462 13.7814 15.8614C14.2874 15.7428 14.7502 15.4852 15.1177 15.1177C15.4852 14.7502 15.7428 14.2874 15.8614 13.7814C16.0462 12.9936 16.0462 12.1737 15.8614 11.3858C15.7428 10.8799 15.4852 10.4171 15.1177 10.0496C14.7502 9.68208 14.2874 9.42449 13.7814 9.30581Z"
+                                            ></path>
+                                        </g>
+                                    </svg>
+                                </div>
+                                <div class="sidebar-button mobile-menu-btn">
+                                    <svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                                        <g>
+                                            <path
+                                                d="M1.03556 2.52631H8.41896C8.99112 2.52631 9.45456 1.96107 9.45456 1.26316C9.45456 0.565247 8.99112 0 8.41896 0H1.03556C0.463399 0 0 0.565247 0 1.26316C0 1.96107 0.463399 2.52631 1.03556 2.52631Z"
+                                            ></path>
+                                            <path
+                                                d="M0.984016 9.26267H15.016C15.5597 9.26267 16 8.6974 16 7.99948C16 7.30157 15.5597 6.73633 15.016 6.73633H0.984016C0.440337 6.73633 0 7.30157 0 7.99948C0 8.6974 0.440337 9.26267 0.984016 9.26267Z"
+                                            ></path>
+                                            <path
+                                                d="M15.0441 13.4736H8.22859C7.70046 13.4736 7.27271 14.0389 7.27271 14.7367C7.27271 15.4347 7.70046 15.9999 8.22859 15.9999H15.0441C15.5722 15.9999 16 15.4347 16 14.7367C16 14.0389 15.5722 13.4736 15.0441 13.4736Z"
+                                            ></path>
+                                        </g>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </header>
+                    <div class="right-sidebar-menu">
+                        <div class="right-sidebar-close-btn">
+                            <svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    fill-rule="evenodd"
+                                    clip-rule="evenodd"
+                                    d="M14.6694 3.0106C14.8839 2.78848 15.0026 2.49099 15 2.18219C14.9973 1.8734 14.8734 1.57801 14.6551 1.35966C14.4367 1.1413 14.1413 1.01744 13.8325 1.01475C13.5237 1.01207 13.2262 1.13078 13.0041 1.34531L8.00706 6.34236L3.01119 1.34531C2.90184 1.23589 2.77202 1.14907 2.62912 1.08983C2.48623 1.03058 2.33306 1.00005 2.17837 1C2.02368 0.999945 1.87049 1.03036 1.72756 1.08951C1.58462 1.14865 1.45473 1.23538 1.34531 1.34472C1.23589 1.45407 1.14907 1.58389 1.08983 1.72679C1.03058 1.86968 1.00005 2.02285 1 2.17754C0.999945 2.33223 1.03036 2.48542 1.08951 2.62835C1.14865 2.77129 1.23538 2.90118 1.34472 3.0106L6.34177 8.00765L1.34472 13.0047C1.12389 13.2257 0.99989 13.5253 1 13.8378C1.00011 14.1502 1.12432 14.4497 1.34531 14.6706C1.5663 14.8914 1.86596 15.0154 2.17837 15.0153C2.49078 15.0152 2.79036 14.891 3.01119 14.67L8.00706 9.67294L13.0041 14.67C13.2262 14.8845 13.5237 15.0032 13.8325 15.0005C14.1413 14.9979 14.4367 14.874 14.6551 14.6556C14.8734 14.4373 14.9973 14.1419 15 13.8331C15.0026 13.5243 14.8839 13.2268 14.6694 13.0047L9.67235 8.00765L14.6694 3.0106Z"
+                                ></path>
+                            </svg>
+                        </div>
+                        <div class="sidebar-content-wrap">
+                            <div class="company-logo-and-short-info">
+                                <a href="index.html" class="company-logo">
+                                    <img src="images/header-logo.svg" alt="" />
+                                </a>
+                                <p>
+                                    Started in 1999, the Maylaa Trading LLC, is now trading high end perfumes, oud
+                                    fragrances, watches, cosmetics, skin care, accessories. internationally and locally.
+                                </p>
+                            </div>
+                            <div class="address-area">
+                                <h3>Head Office</h3>
+                                <a
+                                    href="https://maps.app.goo.gl/SYuAZWfPwL7Td88h7"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    >Al Hudaiba Awards Building, Block B, Unit 702, Dubai, UAE</a
+                                >
+                            </div>
+                            <div class="contact-area">
+                                <span class="contact-title">Contact Info</span>
+                                <ul class="contact-list">
+                                    <li class="single-contact">
+                                        <div class="icon">
+                                            <svg
+                                                width="18"
+                                                height="18"
+                                                viewBox="0 0 18 18"
+                                                xmlns="http://www.w3.org/2000/svg"
+                                            >
+                                                <g>
+                                                    <path
+                                                        d="M16.5556 11.8149C15.4536 11.8149 14.3716 11.6425 13.3462 11.3037C12.8437 11.1323 12.226 11.2895 11.9194 11.6045L9.89547 13.1323C7.54831 11.8794 6.1025 10.4341 4.86669 8.10452L6.34958 6.13334C6.73484 5.74859 6.87303 5.18656 6.70747 4.65922C6.36716 3.62844 6.19428 2.5469 6.19428 1.4444C6.19433 0.647951 5.54638 0 4.74997 0H1.44436C0.647951 0 0 0.647951 0 1.44436C0 10.5732 7.42676 17.9999 16.5556 17.9999C17.352 17.9999 18 17.352 18 16.5556V13.2592C18 12.4629 17.352 11.8149 16.5556 11.8149Z"
+                                                    ></path>
+                                                </g>
+                                            </svg>
+                                        </div>
+                                        <a href="tel:+97143588800"> +971 4 3588800</a>
+                                    </li>
+                                    <li class="single-contact">
+                                        <div class="icon">
+                                            <svg
+                                                width="18"
+                                                height="18"
+                                                viewBox="0 0 18 18"
+                                                fill="none"
+                                                xmlns="http://www.w3.org/2000/svg"
+                                            >
+                                                <g>
+                                                    <path
+                                                        d="M11.6605 10.0054L10.1531 11.5179C9.54178 12.1313 8.46621 12.1446 7.8417 11.5179L6.33419 10.0054L0.919922 15.4372C1.12146 15.5304 1.34367 15.586 1.5799 15.586H16.4149C16.6511 15.586 16.8732 15.5305 17.0747 15.4373L11.6605 10.0054Z"
+                                                    ></path>
+                                                    <path
+                                                        d="M16.4169 2.93066H1.58193C1.34569 2.93066 1.12349 2.98628 0.922018 3.07947L6.70755 8.8842C6.70794 8.88458 6.7084 8.88465 6.70878 8.88504C6.70902 8.88529 6.70918 8.88561 6.70924 8.88596L8.59043 10.7734C8.79025 10.9732 9.20865 10.9732 9.40847 10.7734L11.2893 8.88627C11.2893 8.88627 11.2897 8.88543 11.2901 8.88504C11.2901 8.88504 11.291 8.88458 11.2913 8.8842L17.0767 3.07944C16.8753 2.98621 16.6531 2.93066 16.4169 2.93066ZM0.168247 3.81697C0.0639802 4.02782 0 4.26187 0 4.51259V14.0042C0 14.2549 0.0639099 14.4889 0.168212 14.6998L5.59187 9.25855L0.168247 3.81697ZM17.8306 3.8169L12.407 9.25855L17.8306 14.6999C17.9348 14.489 17.9988 14.2549 17.9988 14.0042V4.51259C17.9988 4.2618 17.9348 4.02775 17.8306 3.8169Z"
+                                                    ></path>
+                                                </g>
+                                            </svg>
+                                        </div>
+                                        <a href="mailto:info@maylaainternational.com">info@maylaainternational.com</a>
+                                    </li>
+                                </ul>
+                                <span class="opening-hour">Monday – Friday | 9:00 AM – 6:00 PM </span>
+                                <span class="opening-hour">Saturday | 9:00 AM – 3:00 PM</span>
+                            </div>
+                            <ul class="social-list">
+                                <li>
+                                    <a href="https://www.facebook.com/">
+                                        <svg
+                                            width="18"
+                                            height="18"
+                                            viewBox="0 0 18 18"
+                                            xmlns="http://www.w3.org/2000/svg"
+                                        >
+                                            <path
+                                                d="M10.3467 16.875V9.70237H13.0122L13.4084 6.89406H10.3467V5.10527C10.3467 4.2949 10.5954 3.74006 11.8766 3.74006H13.5V1.23629C12.7101 1.15945 11.9162 1.12234 11.1218 1.12515C8.76575 1.12515 7.14814 2.43085 7.14814 4.82786V6.8888H4.5V9.69712H7.15392V16.875H10.3467Z"
+                                            ></path>
+                                        </svg>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://x.com/">
+                                        <svg
+                                            width="18"
+                                            height="18"
+                                            viewBox="0 0 18 18"
+                                            xmlns="http://www.w3.org/2000/svg"
+                                        >
+                                            <path
+                                                d="M13.5281 2.25H15.9438L10.6675 7.96841L16.875 15.75H12.0151L8.20856 11.0297L3.8527 15.75H1.43606L7.07948 9.6331L1.125 2.25H6.10889L9.54928 6.56348L13.5281 2.25ZM12.6816 14.3795H14.0203L5.38045 3.54879H3.94523L12.6816 14.3795Z"
+                                            ></path>
+                                        </svg>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://www.linkedin.com/">
+                                        <svg
+                                            width="18"
+                                            height="18"
+                                            viewBox="0 0 18 18"
+                                            xmlns="http://www.w3.org/2000/svg"
+                                        >
+                                            <path
+                                                d="M3.7367 5.39662C4.643 5.39662 5.3777 4.66192 5.3777 3.75562C5.3777 2.84932 4.643 2.11462 3.7367 2.11462C2.8304 2.11462 2.0957 2.84932 2.0957 3.75562C2.0957 4.66192 2.8304 5.39662 3.7367 5.39662Z"
+                                            ></path>
+                                            <path
+                                                d="M6.92681 6.64102V15.7453H9.75356V11.243C9.75356 10.055 9.97706 8.90452 11.4501 8.90452C12.9028 8.90452 12.9208 10.2628 12.9208 11.318V15.746H15.7491V10.7533C15.7491 8.30077 15.2211 6.41602 12.3546 6.41602C10.9783 6.41602 10.0558 7.17127 9.67856 7.88602H9.64031V6.64102H6.92681ZM2.32031 6.64102H5.15156V15.7453H2.32031V6.64102Z"
+                                            ></path>
+                                        </svg>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://youtube.com/">
+                                        <svg
+                                            width="18"
+                                            height="18"
+                                            viewBox="0 0 18 18"
+                                            xmlns="http://www.w3.org/2000/svg"
+                                        >
+                                            <path
+                                                d="M9.0507 3.375H9.13831C9.94752 3.378 14.0477 3.40803 15.1532 3.71033C15.4874 3.80259 15.792 3.98242 16.0364 4.23185C16.2809 4.48128 16.4566 4.79157 16.5462 5.13172C16.6456 5.51209 16.7155 6.01558 16.7628 6.53509L16.7726 6.63919L16.7943 6.89945L16.8022 7.00355C16.8661 7.91844 16.874 8.77528 16.875 8.96246V9.03754C16.874 9.23173 16.8652 10.1466 16.7943 11.0996L16.7864 11.2047L16.7775 11.3088C16.7283 11.8813 16.6555 12.4499 16.5462 12.8683C16.4566 13.2084 16.2809 13.5187 16.0364 13.7682C15.792 14.0176 15.4874 14.1974 15.1532 14.2897C14.0113 14.602 9.67089 14.624 9.0694 14.625H8.92961C8.62542 14.625 7.36731 14.619 6.04817 14.5729L5.88081 14.5669L5.79517 14.5629L5.62683 14.5559L5.45849 14.5489C4.36577 14.4999 3.32522 14.4208 2.8458 14.2887C2.5117 14.1965 2.20724 14.0168 1.96281 13.7676C1.71837 13.5183 1.54252 13.2082 1.45282 12.8683C1.34354 12.4509 1.2707 11.8813 1.22147 11.3088L1.2136 11.2037L1.20572 11.0996C1.15686 10.4213 1.12994 9.74161 1.125 9.06156L1.125 8.93844C1.12697 8.72323 1.13484 7.9795 1.188 7.1587L1.19489 7.0556L1.19785 7.00355L1.20572 6.89945L1.22738 6.63919L1.23723 6.53509C1.28448 6.01558 1.35437 5.51109 1.4538 5.13172C1.54336 4.79157 1.71914 4.48128 1.96358 4.23185C2.20803 3.98242 2.51257 3.80259 2.84678 3.71033C3.3262 3.5802 4.36675 3.50012 5.45947 3.45007L5.62683 3.44307L5.79615 3.43706L5.88081 3.43406L6.04915 3.42705C6.98605 3.39642 7.92333 3.37941 8.8607 3.376L9.0507 3.375ZM7.42539 6.58814V11.4109L11.5177 9.0005L7.42539 6.58814Z"
+                                            ></path>
+                                        </svg>
+                                    </a>
+                                </li>
+                            </ul>
                         </div>
                     </div>
+                </div>
+                <!-- header Section End-->
 
-                    <div class="mg-nav__item">
-                        <a class="mg-nav__link" href="brands.html">Brands</a>
-                    </div>
-
-                    <div class="mg-nav__item">
-                        <a class="mg-nav__link" aria-current="page" href="insights.html">
-                            Insights
-                            <img src="images/figma/nav-chevron.svg" alt="" aria-hidden="true" />
-                        </a>
-                        <div class="mg-nav__drop">
-                            <a href="insights.html">News &amp; Milestones</a>
-                            <a href="events.html">Events</a>
+                <!-- Breadcrumb Section Start -->
+                <div class="breadcrumb-section" style="background-image: url(images/industry-img4.jpg)">
+                    <div class="container one">
+                        <div class="banner-content">
+                            <h1>Insights &amp; Milestones</h1>
+                            <ul class="breadcrumb-list">
+                                <li><a href="index.html">Home</a></li>
+                                <li>News &amp; Insights</li>
+                            </ul>
                         </div>
                     </div>
-
-                    <div class="mg-nav__item">
-                        <a class="mg-nav__link" href="events.html">Events</a>
+                </div>
+                <!-- Breadcrumb Section End -->
+                <div class="home1-blog-section mb-140" id="media">
+                    <div class="container one">
+                        <div class="row justify-content-center mb-60">
+                            <div class="col-lg-10">
+                                <div class="section-title three text-center">
+                                    <span class="text-anim">Latest Article</span>
+                                    <h2 class="text-anim">Stay informed on our latest milestones, partnerships and global engagements.</h2>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row g-xl-4 g-lg-3 g-4">
+                        <div class="col-lg-6 fade_anim" data-delay=".2" data-fade-from="left">
+                            <div class="blog-card">
+                                <a href="#" class="blog-img">
+                                    <img src="images/figma/news-daima-store.png" alt="Daima&rsquo;s 25th store at Dubai Mall Zabeel" />
+                                </a>
+                                <div class="blog-content">
+                                    <a href="#" class="category">Milestone</a>
+                                    <h2><a href="#">Daima&rsquo;s 25th store at Dubai Mall Zabeel</a></h2>
+                                    <p>A new flagship for Daima at Dubai Mall Zabeel, marking twenty-five stores across the UAE. 03 Mar 2026</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 fade_anim" data-delay=".4" data-fade-from="right">
+                            <div class="blog-card">
+                                <a href="#" class="blog-img">
+                                    <img src="images/figma/news-dusseldorf.png" alt="Strengthening our global presence at Beauty D&uuml;sseldorf" />
+                                </a>
+                                <div class="blog-content">
+                                    <a href="#" class="category">Trade Show</a>
+                                    <h2><a href="#">Strengthening our global presence at Beauty D&uuml;sseldorf</a></h2>
+                                    <p>Maylaa International joined one of Europe&rsquo;s leading beauty and fragrance trade events, meeting distributors and brand partners from across the region. 03 Feb 2026</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 fade_anim" data-delay=".2" data-fade-from="left">
+                            <div class="blog-card">
+                                <a href="#" class="blog-img">
+                                    <img src="images/figma/news-jeroboam.png" alt="Savilia Blu &mdash; an elegant evening at JEROBOAM Atelier" />
+                                </a>
+                                <div class="blog-content">
+                                    <a href="#" class="category">Brand Evening</a>
+                                    <h2><a href="#">Savilia Blu &mdash; an elegant evening at JEROBOAM Atelier</a></h2>
+                                    <p>An intimate evening at JEROBOAM Atelier in Khawaneej, hosted for invited guests, collectors and press. 25 Dec 2025</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 fade_anim" data-delay=".4" data-fade-from="right">
+                            <div class="blog-card">
+                                <a href="#" class="blog-img">
+                                    <img src="images/figma/news-atelier-des-ors.png" alt="A golden milestone with Atelier Des Ors" />
+                                </a>
+                                <div class="blog-content">
+                                    <a href="#" class="category">Partnership</a>
+                                    <h2><a href="#">A golden milestone with Atelier Des Ors</a></h2>
+                                    <p>Marking a milestone in our partnership with Atelier Des Ors, extending the house&rsquo;s presence across our retail network. 03 Nov 2025</p>
+                                </div>
+                            </div>
+                        </div>
+                        </div>
                     </div>
+                </div>
+                <div class="home2-business-challenge-section pb-140" id="network">
+                    <div class="container one">
+                        <div class="row justify-content-center mb-60">
+                            <div class="col-lg-10">
+                                <div class="section-title three text-center">
+                                    <span class="text-anim">Our Retail Network</span>
+                                    <h2 class="text-anim">Positioned to serve niche preferences and global tastes.</h2>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row justify-content-center">
+                            <div class="col-lg-10">
+                                <div class="fade_anim" data-delay=".2">
+                                    <p>With a strong presence across the United Arab Emirates and growing regional ambitions, Maylaa is strategically positioned to serve diverse audiences with niche preferences and global tastes.</p>
+                                    <p>Our 80+ outlets span fashion, fragrance, gourmet and floral retail, backed by 600+ employees across manufacturing, retail and distribution.</p>
+                                </div>
+                            </div>
+                        </div>
 
-                    <div class="mg-nav__item">
-                        <a class="mg-nav__link" href="contact.html">Contact</a>
                     </div>
-                </nav>
+                </div>
+                <!-- home2 Newsletter Section Start-->
+                <div class="home2-newsletter-section" style="background-image: url(images/home2-newsletter-bg.jpg)">
+                    <div class="container one">
+                        <div class="row">
+                            <div class="col-xl-6 col-lg-7 col-md-9">
+                                <div class="newsletter-content-wrap">
+                                    <div class="title-area">
+                                        <svg
+                                            width="25"
+                                            height="25"
+                                            viewBox="0 0 25 25"
+                                            xmlns="http://www.w3.org/2000/svg"
+                                        >
+                                            <path
+                                                d="M12.5 25C13.9986 25 15.2892 24.0948 15.8554 22.8027H9.14458C9.71084 24.0948 11.0014 25 12.5 25ZM20.0684 12.1026V10.498C20.0684 7.08877 17.8022 4.19917 14.6973 3.25537V2.19727C14.6973 0.985693 13.7116 0 12.5 0C11.2884 0 10.3027 0.985693 10.3027 2.19727V3.25537C7.19775 4.19917 4.93164 7.08872 4.93164 10.498V12.1026C4.93164 15.0974 3.79013 17.937 1.71743 20.0985C1.61805 20.2021 1.55131 20.3327 1.52551 20.4739C1.4997 20.6151 1.51598 20.7608 1.57231 20.8929C1.62864 21.0249 1.72253 21.1375 1.84233 21.2166C1.96212 21.2957 2.10253 21.3379 2.24609 21.3379H22.7539C22.8975 21.3379 23.0378 21.2957 23.1576 21.2166C23.2774 21.1375 23.3713 21.0249 23.4276 20.8928C23.4839 20.7608 23.5002 20.6151 23.4744 20.4739C23.4486 20.3327 23.3819 20.2021 23.2826 20.0985C21.2099 17.937 20.0684 15.0973 20.0684 12.1026ZM13.2324 2.96523C12.9914 2.94199 12.7471 2.92969 12.5 2.92969C12.2529 2.92969 12.0086 2.94199 11.7676 2.96523V2.19727C11.7676 1.79341 12.0961 1.46484 12.5 1.46484C12.9039 1.46484 13.2324 1.79341 13.2324 2.19727V2.96523ZM22.0215 10.498C22.0215 10.9025 22.3494 11.2305 22.7539 11.2305C23.1584 11.2305 23.4863 10.9025 23.4863 10.498C23.4863 7.56348 22.3435 4.80454 20.2685 2.72949C19.9825 2.44351 19.5187 2.44346 19.2327 2.72949C18.9467 3.01553 18.9467 3.47925 19.2327 3.76528C21.0311 5.56367 22.0215 7.95474 22.0215 10.498ZM2.24609 11.2305C2.65058 11.2305 2.97851 10.9025 2.97851 10.498C2.97851 7.95479 3.96894 5.56372 5.76728 3.76533C6.05332 3.4793 6.05332 3.01558 5.76728 2.72954C5.48129 2.44351 5.01753 2.44351 4.73149 2.72954C2.65644 4.80459 1.51367 7.56348 1.51367 10.498C1.51367 10.9025 1.8416 11.2305 2.24609 11.2305Z"
+                                            ></path>
+                                        </svg>
+                                        <h3>Subscribe for business insights and updates.</h3>
+                                    </div>
+                                    <form class="newsletter-form">
+                                        <input type="email" />
+                                        <button type="submit">
+                                            <svg
+                                                width="20"
+                                                height="20"
+                                                viewBox="0 0 20 20"
+                                                xmlns="http://www.w3.org/2000/svg"
+                                            >
+                                                <g>
+                                                    <path
+                                                        d="M7.29166 14.6767V18.5417C7.2923 18.6731 7.33425 18.8009 7.41157 18.9071C7.48889 19.0133 7.59767 19.0924 7.72249 19.1334C7.8473 19.1743 7.98183 19.1749 8.10702 19.1351C8.2322 19.0954 8.3417 19.0172 8.42 18.9117L10.6808 15.8351L7.29166 14.6767ZM19.7375 0.115895C19.6436 0.0490233 19.533 0.00942685 19.418 0.00148505C19.303 -0.00645676 19.188 0.0175656 19.0858 0.0708953L0.33583 9.86256C0.227949 9.91958 0.13906 10.0069 0.0800727 10.1137C0.0210853 10.2205 -0.00543414 10.3422 0.00376885 10.4639C0.0129718 10.5855 0.0574969 10.7019 0.13188 10.7986C0.206263 10.8953 0.307267 10.9683 0.422497 11.0084L5.635 12.7901L16.7358 3.2984L8.14583 13.6476L16.8817 16.6334C16.9683 16.6625 17.0604 16.6723 17.1512 16.6622C17.2421 16.652 17.3297 16.6221 17.4078 16.5746C17.4859 16.527 17.5527 16.463 17.6034 16.3869C17.6542 16.3108 17.6877 16.2246 17.7017 16.1342L19.9933 0.717562C20.0103 0.603437 19.9954 0.486844 19.9502 0.380665C19.9051 0.274486 19.8315 0.182855 19.7375 0.115895Z"
+                                                    ></path>
+                                                </g>
+                                            </svg>
+                                        </button>
+                                    </form>
+                                    <span
+                                        >Get practical strategies and business insights to help you grow with
+                                        confidence.</span
+                                    >
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- home2 Newsletter Section End-->
+                <!-- home2 Footer Section Start-->
+                <footer class="footer-section two">
+                    <div class="footer-info-and-award-wrapper">
+                        <div class="container-fluid one">
+                            <div class="social-info-and-award-area">
+                                <div class="social-info">
+                                    <p>Luxury, lifestyle and legacy &mdash; a house of brands built on trust since 1999.</p>
+                                    <ul class="social-list">
+                                        <li>
+                                            <a href="https://www.facebook.com/">
+                                                <svg
+                                                    width="20"
+                                                    height="20"
+                                                    viewBox="0 0 20 20"
+                                                    xmlns="http://www.w3.org/2000/svg"
+                                                >
+                                                    <path
+                                                        d="M11.4964 18.75V10.7804H14.458L14.8982 7.66006H11.4964V5.67253C11.4964 4.77211 11.7727 4.15562 13.1962 4.15562H15V1.37366C14.1224 1.28827 13.2402 1.24705 12.3575 1.25016C9.73972 1.25016 7.94237 2.70095 7.94237 5.36428V7.65423H5V10.7746H7.9488V18.75H11.4964Z"
+                                                    ></path>
+                                                </svg>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="https://x.com/">
+                                                <svg
+                                                    width="20"
+                                                    height="20"
+                                                    viewBox="0 0 20 20"
+                                                    xmlns="http://www.w3.org/2000/svg"
+                                                >
+                                                    <path
+                                                        d="M15.0312 2.5H17.7153L11.8528 8.85379L18.75 17.5H13.3502L9.12063 12.2552L4.28078 17.5H1.59563L7.86609 10.7034L1.25 2.5H6.78766L10.6103 7.29276L15.0312 2.5ZM14.0906 15.9772H15.5781L5.97828 3.9431H4.38359L14.0906 15.9772Z"
+                                                    ></path>
+                                                </svg>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="https://www.linkedin.com/">
+                                                <svg
+                                                    width="20"
+                                                    height="20"
+                                                    viewBox="0 0 20 20"
+                                                    xmlns="http://www.w3.org/2000/svg"
+                                                >
+                                                    <path
+                                                        d="M4.15244 5.99628C5.15943 5.99628 5.97577 5.17994 5.97577 4.17294C5.97577 3.16594 5.15943 2.34961 4.15244 2.34961C3.14544 2.34961 2.3291 3.16594 2.3291 4.17294C2.3291 5.17994 3.14544 5.99628 4.15244 5.99628Z"
+                                                    ></path>
+                                                    <path
+                                                        d="M7.69646 7.37891V17.4947H10.8373V12.4922C10.8373 11.1722 11.0856 9.89391 12.7223 9.89391C14.3365 9.89391 14.3565 11.4031 14.3565 12.5756V17.4956H17.499V11.9481C17.499 9.22307 16.9123 7.12891 13.7273 7.12891C12.1981 7.12891 11.1731 7.96807 10.754 8.76224H10.7115V7.37891H7.69646ZM2.57812 7.37891H5.72396V17.4947H2.57812V7.37891Z"
+                                                    ></path>
+                                                </svg>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="https://youtube.com/">
+                                                <svg
+                                                    width="20"
+                                                    height="20"
+                                                    viewBox="0 0 20 20"
+                                                    xmlns="http://www.w3.org/2000/svg"
+                                                >
+                                                    <path
+                                                        d="M10.0563 3.75H10.1537C11.0528 3.75334 15.6086 3.7867 16.8369 4.12259C17.2083 4.2251 17.5466 4.42491 17.8182 4.70205C18.0898 4.9792 18.2852 5.32397 18.3847 5.70191C18.4951 6.12454 18.5728 6.68398 18.6253 7.26121L18.6362 7.37688L18.6603 7.66605L18.6691 7.78172C18.7402 8.79827 18.7489 9.75031 18.75 9.95829V10.0417C18.7489 10.2575 18.7391 11.274 18.6603 12.3328L18.6516 12.4496L18.6417 12.5653C18.587 13.2015 18.5061 13.8332 18.3847 14.2981C18.2852 14.676 18.0898 15.0208 17.8182 15.2979C17.5466 15.5751 17.2083 15.7749 16.8369 15.8774C15.5681 16.2244 10.7454 16.2489 10.0771 16.25H9.92179C9.5838 16.25 8.1859 16.2433 6.72019 16.1922L6.53424 16.1855L6.43907 16.181L6.25203 16.1733L6.06499 16.1655C4.85085 16.111 3.69468 16.0231 3.16199 15.8763C2.79078 15.7739 2.45249 15.5742 2.1809 15.2973C1.9093 15.0204 1.71391 14.6758 1.61424 14.2981C1.49283 13.8343 1.41189 13.2015 1.35719 12.5653L1.34844 12.4485L1.33969 12.3328C1.2854 11.5792 1.25549 10.824 1.25 10.0684L1.25 9.9316C1.25219 9.69248 1.26094 8.86611 1.32 7.95411L1.32766 7.83955L1.33094 7.78172L1.33969 7.66605L1.36376 7.37688L1.3747 7.26121C1.4272 6.68398 1.50486 6.12343 1.61534 5.70191C1.71484 5.32397 1.91015 4.9792 2.18176 4.70205C2.45336 4.42491 2.79174 4.2251 3.16309 4.12259C3.69578 3.978 4.85194 3.88902 6.06608 3.83341L6.25203 3.82563L6.44017 3.81896L6.53424 3.81562L6.72128 3.80783C7.76228 3.77381 8.8037 3.7549 9.84523 3.75111L10.0563 3.75ZM8.25044 7.32016V12.6787L12.7974 10.0006L8.25044 7.32016Z"
+                                                    ></path>
+                                                </svg>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="award-area">
+                                    <img src="images/footer-award-img1.png" alt="" />
+                                    <img src="images/footer-award-img2.png" alt="" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="footer-main-wrap">
+                        <div class="container-fluid one">
+                            <div class="row gy-5 justify-content-between">
+                                <div class="col-xl-4 col-lg-3">
+                                    <div class="company-logo-area">
+                                        <a href="index.html" class="company-logo">
+                                            <img src="images/header-logo.svg" alt="" />
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="col-xxl-7 col-xl-8 col-lg-9">
+                                    <div class="row gy-5 justify-content-between">
+                                        <div class="col-xxl-5 col-xl-4 col-lg-5 col-md-5">
+                                            <div class="footer-widget">
+                                                <h3 class="widget-title">Head Office</h3>
+                                                <div class="address-area">
+                                                    <a href="#"
+                                                        >Al Hudaiba Awards Building, <br>Block B, Unit 702, Dubai, UAE</a
+                                                    >
+                                                </div>
+                                                <ul class="contact-list">
+                                                    <li class="single-contact">
+                                                        <div class="icon">
+                                                            <svg
+                                                                width="15"
+                                                                height="15"
+                                                                viewBox="0 0 15 15"
+                                                                xmlns="http://www.w3.org/2000/svg"
+                                                            >
+                                                                <g>
+                                                                    <path
+                                                                        d="M14.5917 11.0085L12.4984 8.91519C11.7508 8.16759 10.4799 8.46666 10.1809 9.43852C9.95659 10.1114 9.20898 10.4852 8.53614 10.3356C7.04092 9.96184 5.02239 8.01807 4.64859 6.4481C4.42431 5.77522 4.87287 5.02762 5.54571 4.80336C6.5176 4.50432 6.81664 3.23339 6.06904 2.48579L3.97574 0.392493C3.37766 -0.130831 2.48053 -0.130831 1.95721 0.392493L0.536759 1.81294C-0.883692 3.30815 0.68628 7.27046 4.20003 10.7842C7.71377 14.298 11.6761 15.9427 13.1713 14.4475L14.5917 13.027C15.1151 12.4289 15.1151 11.5318 14.5917 11.0085Z"
+                                                                    ></path>
+                                                                </g>
+                                                            </svg>
+                                                        </div>
+                                                        <div class="content">
+                                                            <a href="tel: +97143588800"> +971 4 3588800</a>
+                                                            <span>Mon – Fri : 9:00 AM – 6:00 PM</span>
+                                                            <span>Sat : 9:00 AM – 3:00 PM</span>
+                                                          
+                                                        </div>
+                                                    </li>
+                                                    <li class="single-contact">
+                                                        <div class="icon">
+                                                            <svg
+                                                                width="15"
+                                                                height="15"
+                                                                viewBox="0 0 15 15"
+                                                                xmlns="http://www.w3.org/2000/svg"
+                                                            >
+                                                                <g>
+                                                                    <path
+                                                                        d="M5.46927 11.0075V13.9063C5.46975 14.0048 5.50122 14.1007 5.55921 14.1803C5.6172 14.26 5.69878 14.3193 5.79239 14.35C5.886 14.3807 5.9869 14.3812 6.08079 14.3514C6.17468 14.3215 6.2568 14.2629 6.31553 14.1838L8.01115 11.8763L5.46927 11.0075ZM14.8037 0.0869214C14.7332 0.0367675 14.6503 0.00707014 14.564 0.00111379C14.4778 -0.00484257 14.3916 0.0131742 14.3149 0.0531715L0.252399 7.39692C0.171488 7.43968 0.104821 7.50514 0.060581 7.58525C0.0163404 7.66536 -0.00354918 7.75665 0.00335307 7.8479C0.0102553 7.93916 0.0436491 8.02641 0.0994362 8.09896C0.155223 8.17151 0.230977 8.22619 0.317399 8.2563L4.22677 9.59254L12.5524 2.4738L6.1099 10.2357L12.6618 12.475C12.7268 12.4969 12.7958 12.5043 12.864 12.4966C12.9321 12.489 12.9978 12.4666 13.0564 12.4309C13.115 12.3953 13.165 12.3472 13.2031 12.2902C13.2412 12.2331 13.2663 12.1685 13.2768 12.1007L14.9955 0.538171C15.0082 0.452578 14.9971 0.365133 14.9632 0.285499C14.9293 0.205865 14.8741 0.137141 14.8037 0.0869214Z"
+                                                                    ></path>
+                                                                </g>
+                                                            </svg>
+                                                        </div>
+                                                        <div class="content">
+                                                            <a href="mailto:info@maylaainternational.com"
+                                                                >info@maylaainternational.com</a
+                                                            >
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div
+                                            class="col-xxl-3 col-xl-4 col-lg-3 col-md-3 d-flex justify-content-md-center"
+                                        >
+                                            <div class="footer-widget">
+                                                <h3 class="widget-title">About</h3>
+                                                <ul class="footer-menu-list">
+                                                    <li><a href="about.html">Who we are?</a></li>
+                                                    <li><a href="businesses.html">Our businesses</a></li>
+                                                    <li><a href="brands.html">Our brands</a></li>
+                                                    <li><a href="insights.html">Insights</a></li>
+                                                    <li><a href="events.html">Events</a></li>
+                                                    <li><a href="contact.html">Contact</a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="col-xxl-3 col-xl-4 col-lg-3 col-md-4 d-flex justify-content-md-end">
+                                            <div class="footer-widget">
+                                                <h3 class="widget-title">Legality</h3>
+                                                <ul class="footer-menu-list">
+                                                    <li><a href="contact.html">Privacy &amp; policy</a></li>
+                                                    <li><a href="contact.html">Terms &amp; conditions</a></li>
+                                                    <li><a href="contact.html">FAQ’s</a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="copyright-area">
+                        <div class="container-fluid one">
+                            <span
+                                >© 2026 Maylaa Trading LLC. All Rights
+                                Reserved.</span
+                            >
+                        </div>
+                    </div>
+                    <img src="images/footer-vector.png" alt="" class="vector" />
+                </footer>
+                <!-- home2 Footer Section End-->
             </div>
-        </header>
+        </div>
 
-        <main>
-            <section class="mg-phero">
-                <div class="mg-container">
-                    <div class="mg-phero__inner">
-                        <nav class="mg-crumbs" aria-label="Breadcrumb">
-                            <a href="index.html">Home</a>
-                            <span class="mg-crumbs__sep" aria-hidden="true">/</span>
-                            <span aria-current="page">Insights</span>
-                        </nav>
-                        <h1 class="mg-h2">Insights, <span class="mg-muted">Milestones &amp; Journeys</span></h1>
-                        <p class="mg-lead">Stay informed on our latest milestones, partnerships and global engagements shaping our growth.</p>
-                    </div>
-                </div>
-            </section>
+        <!--  Main jQuery  -->
+        <script src="js/jquery-3.7.1.min.js"></script>
+        <script src="js/jquery-ui.js"></script>
 
-            <section class="mg-section">
-                <div class="mg-container">
-                    <div class="mg-insights__panel">
-                        <div class="mg-insights__grid">
-                            <a class="mg-feature" href="insights.html">
-                                <img src="images/figma/news-daima-store.png" alt="Daima's 25th store at Dubai Mall Zabeel" loading="lazy" />
-                                <span class="mg-feature__scrim"></span>
-                                <span class="mg-feature__badge">Milestone</span>
-                                <span class="mg-feature__meta">03 Mar 2026</span>
-                                <h2 class="mg-feature__title">Daima's 25th store at Dubai Mall Zabeel</h2>
-                            </a>
-
-                            <div class="mg-postlist">
-                                <a class="mg-post" href="events.html">
-                                    <div class="mg-post__media">
-                                        <img src="images/figma/news-dusseldorf.png" alt="Beauty Düsseldorf trade show" loading="lazy" />
-                                    </div>
-                                    <div>
-                                        <p class="mg-post__date">03 Feb 2026</p>
-                                        <h3 class="mg-post__title">Strengthening Our Global Presence at Beauty Düsseldorf</h3>
-                                    </div>
-                                </a>
-
-                                <a class="mg-post" href="events.html">
-                                    <div class="mg-post__media">
-                                        <img src="images/figma/news-jeroboam.png" alt="Evening at JEROBOAM Atelier, Khawaneej" loading="lazy" />
-                                    </div>
-                                    <div>
-                                        <p class="mg-post__date">25 Dec 2025</p>
-                                        <h3 class="mg-post__title">Savilia Blu — An elegant evening at JEROBOAM Atelier, Khawaneej</h3>
-                                    </div>
-                                </a>
-
-                                <a class="mg-post" href="events.html">
-                                    <div class="mg-post__media">
-                                        <img src="images/figma/news-atelier-des-ors.png" alt="Partnership milestone with Atelier Des Ors" loading="lazy" />
-                                    </div>
-                                    <div>
-                                        <p class="mg-post__date">03 Nov 2025</p>
-                                        <h3 class="mg-post__title">A Golden Milestone with Atelier Des Ors</h3>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <section class="mg-section" id="network">
-                <div class="mg-container">
-                    <div class="mg-split">
-                        <div>
-                            <h2 class="mg-h2">Our Retail <span class="mg-muted">Network</span></h2>
-                        </div>
-                        <div class="mg-prose">
-                            <p>With a strong presence across the United Arab Emirates and growing regional ambitions,
-                                Maylaa is strategically positioned to serve diverse audiences with niche preferences and
-                                global tastes.</p>
-                            <p>Our 80+ outlets span fashion, fragrance, gourmet and floral retail, backed by 600+ employees
-                                across manufacturing, retail and distribution.</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <section class="mg-cta">
-                <div class="mg-container">
-                    <div class="mg-cta__inner">
-                        <h2 class="mg-h2">Never miss a <span class="mg-muted">milestone</span></h2>
-                        <p class="mg-lead">Subscribe below for partnership announcements, store openings and global engagements.</p>
-                        <div class="mg-cta__actions">
-                            <a class="mg-btn mg-btn--solid" href="contact.html">Contact Us
-                                <img src="images/figma/arrow-right-white.svg" alt="" aria-hidden="true" /></a>
-                            <a class="mg-btn mg-btn--outline" href="events.html">See Upcoming Events
-                                <img src="images/figma/arrow-right-blue.svg" alt="" aria-hidden="true" /></a>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </main>
-
-        <footer class="mg-footer" id="footer">
-            <div class="mg-container">
-                <div class="mg-footer__newsletter">
-                    <div class="mg-footer__nl-copy">
-                        <h2>Stay Connected with <span class="mg-muted">Global Opportunities</span></h2>
-                        <p>Subscribe to receive the latest updates</p>
-                    </div>
-
-                    <form class="mg-nlform" id="mgSubscribe" novalidate>
-                        <label class="mg-sr-only" for="mgEmail">Email address</label>
-                        <input id="mgEmail" name="email" type="email" placeholder="Enter your email" required />
-                        <button type="submit">Subscribe</button>
-                    </form>
-                </div>
-
-                <div class="mg-footer__about">
-                    <div class="mg-footer__brand">
-                        <img src="images/header-logo.svg" alt="Maylaa International" width="197" height="45" />
-                        <p>
-                            Started in 1999, the Maylaa Trading LLC, is now trading high end perfumes, oud fragrances,
-                            watches, cosmetics, skin care, accessories. internationally and locally.
-                        </p>
-                    </div>
-
-                    <div class="mg-contacts">
-                        <div class="mg-contact">
-                            <img src="images/figma/icon-email.svg" alt="" aria-hidden="true" />
-                            <div>
-                                <p class="mg-contact__label">Email Address</p>
-                                <a class="mg-contact__value" href="mailto:info@maylaainternational.com">info@maylaainternational.com</a>
-                            </div>
-                        </div>
-
-                        <div class="mg-contact">
-                            <img src="images/figma/icon-phone.svg" alt="" aria-hidden="true" />
-                            <div>
-                                <p class="mg-contact__label">Phone Number</p>
-                                <a class="mg-contact__value" href="tel:+97143588800">+971 4 3588800</a>
-                            </div>
-                        </div>
-
-                        <div class="mg-contact">
-                            <img src="images/figma/icon-address.svg" alt="" aria-hidden="true" />
-                            <div>
-                                <p class="mg-contact__label">Address</p>
-                                <p class="mg-contact__value">Al Hudaiba Awards Building, Block B, Unit 702, Dubai, UAE</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="mg-footer__links">
-                    <div class="mg-linkcol">
-                        <h3>Private Labels</h3>
-                        <ul>
-                            <li><a href="brands.html">Jouri</a></li>
-                            <li><a href="brands.html">Sarya</a></li>
-                            <li><a href="brands.html">Asrar Perfume</a></li>
-                            <li><a href="brands.html">Blue Ocean Perfumes</a></li>
-                            <li><a href="brands.html">Neema Sweets</a></li>
-                            <li><a href="brands.html">Exceptional Perfume</a></li>
-                        </ul>
-                    </div>
-
-                    <div class="mg-linkcol">
-                        <h3>Retail</h3>
-                        <ul>
-                            <li><a href="https://www.atelierperfumery.com" target="_blank" rel="noopener">Atelier perfumery</a></li>
-                            <li><a href="https://www.daima.ae" target="_blank" rel="noopener">Daima</a></li>
-                            <li><a href="https://www.touchofoud.com" target="_blank" rel="noopener">Touch Of Oud</a></li>
-                            <li><a href="https://www.flowerdistrict.ae" target="_blank" rel="noopener">Flower District</a></li>
-                            <li><a href="https://www.saleelparfums.com" target="_blank" rel="noopener">Saleel Perfumes</a></li>
-                            <li><a href="brands.html">Juvenis Paris</a></li>
-                        </ul>
-                    </div>
-
-                    <div class="mg-linkcol">
-                        <h3>Distribution Brands</h3>
-                        <ul>
-                            <li><a href="brands.html">GDT</a></li>
-                            <li><a href="brands.html">Superz</a></li>
-                            <li><a href="brands.html">LT Piver</a></li>
-                            <li><a href="brands.html">Surya</a></li>
-                        </ul>
-                    </div>
-
-                    <div class="mg-linkcol">
-                        <h3>Manufacturing</h3>
-                        <ul>
-                            <li><a href="brands.html">First Perfumes</a></li>
-                            <li><a href="brands.html">Maylaa Chocolate Factory</a></li>
-                            <li><a href="brands.html">Maylaa Gold and Diamonds</a></li>
-                        </ul>
-                    </div>
-
-                    <div class="mg-linkcol">
-                        <h3>Others</h3>
-                        <ul>
-                            <li><a href="brands.html">Bitstack IT Solutions</a></li>
-                            <li><a href="brands.html">Space Concept Fit-out</a></li>
-                        </ul>
-                    </div>
-
-                    <div class="mg-linkcol">
-                        <h3>General</h3>
-                        <ul>
-                            <li><a href="about.html">Maylaa’s Story</a></li>
-                            <li><a href="contact.html">Contact Us</a></li>
-                            <li><a href="insights.html">Blog</a></li>
-                            <li><a href="contact.html">FAQ’s</a></li>
-                            <li><a href="contact.html">Terms &amp; Conditions</a></li>
-                            <li><a href="contact.html">Privacy Policy</a></li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="mg-footer__bar">
-                    <p class="mg-footer__copy">© 2026 Maylaa International Trading LLC. All rights reserved.</p>
-
-                    <div class="mg-socials">
-                        <a href="#" aria-label="Facebook"><img src="images/figma/social-facebook.svg" alt="" /></a>
-                        <a href="#" aria-label="LinkedIn"><img src="images/figma/social-linkedin.svg" alt="" /></a>
-                        <a href="#" aria-label="Instagram"><img src="images/figma/social-instagram.svg" alt="" /></a>
-                        <a href="#" aria-label="X"><img src="images/figma/social-x.svg" alt="" /></a>
-                        <a href="#" aria-label="YouTube"><img src="images/figma/social-youtube.svg" alt="" /></a>
-                    </div>
-                </div>
-            </div>
-
-            <img class="mg-footer__wordmark" src="images/figma/footer-lets-work-together.png" alt="Let’s work together" loading="lazy" />
-        </footer>
-
-        <!-- JS -->
+        <!-- Popper and Bootstrap JS -->
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/popper.min.js"></script>
+        <!-- Swiper slider JS -->
         <script src="js/swiper-bundle.min.js"></script>
-        <script src="js/maylaa-home.js"></script>
+        <!-- Wow JS -->
+        <script src="js/wow.min.js"></script>
+        <!-- Nice Select JS -->
+        <script src="js/jquery.nice-select.min.js"></script>
+        <!-- Gsap  JS -->
+        <script src="js/gsap.min.js"></script>
+        <script src="js/ScrollTrigger.min.js"></script>
+        <script src="js/ScrollSmoother.min.js"></script>
+        <script src="js/SplitText.min.js"></script>
+        <!-- FancyBox  JS -->
+        <script src="js/jquery.fancybox.min.js"></script>
+        <!-- Custom JS -->
+        <script src="js/custom.js"></script>
     </body>
 </html>
