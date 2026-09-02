@@ -662,6 +662,10 @@ button {
   flex-direction: column;
   gap: 20px;
 }
+.mg-brands .swiper-wrapper {
+  transition-timing-function: linear !important;
+}
+
 
 /* single tall card, dropped 90px like the Figma offset rows */
 .mg-bslide--offset {
