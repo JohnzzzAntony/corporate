@@ -372,7 +372,7 @@ button {
   flex-direction: column;
   gap: 50px;
   width: 100%;
-  max-width: 1113px;
+  max-width: 1280px;
   margin: 0 auto;
   padding: 60px 44px;
   color: var(--mg-white);
