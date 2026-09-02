@@ -80,10 +80,10 @@ if (typeof Swiper !== "undefined" && document.getElementById("mgBrands")) {
       pauseOnMouseEnter: false
     },
 
-    breakpoints: {
-      0: { spaceBetween: 12 },
-      768: { spaceBetween: 20 }
-    }
+    // breakpoints: {
+    //   0: { spaceBetween: 12 },
+    //   768: { spaceBetween: 20 }
+    // }
   });
 }
 
