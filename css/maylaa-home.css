@@ -1804,3 +1804,71 @@ button {
 #mgBrands .swiper-wrapper {
   transition-timing-function: linear !important;
 }
+
+/*------------------------------------------------------------------
+  17. Animation library integration safeguards
+  Ensures animate.css and any animation classes solely enhance the
+  design and never alter core structural properties, layout grids,
+  slide geometry, or sticky navigation.
+------------------------------------------------------------------*/
+.animated {
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+/* Guard: animations on navigation must never break sticky positioning */
+.mg-nav.animated {
+  transform: none !important;
+}
+
+/* Guard: Swiper wrapper & slides must retain their exact Figma geometry */
+.mg-brands .swiper-wrapper,
+.mg-brands .swiper-slide,
+.mg-quotes .swiper-wrapper,
+.mg-quotes .swiper-slide {
+  transform-style: flat;
+}
+
+/*------------------------------------------------------------------
+  18. Scroll-reveal (figma-design only)
+
+  js/reveal.js is the only thing that ever adds .mg-reveal — it does
+  so at runtime, after checking for prefers-reduced-motion and
+  IntersectionObserver support. So if JS is blocked, slow, or errors,
+  no element ever receives this class and everything just renders at
+  its normal opacity: there is no "invisible until JS runs" risk here,
+  unlike a CSS-only default-hidden approach would have.
+
+  Cost: opacity + transform only (both compositor-only properties, no
+  layout/paint), one IntersectionObserver instance, unobserve() after
+  each element reveals once. No continuous listeners, no re-triggering
+  on repeated scroll, nothing that runs after the page has settled.
+------------------------------------------------------------------*/
+.mg-reveal {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+  transition-delay: var(--mg-reveal-delay, 0ms);
+  will-change: opacity, transform;
+}
+
+.mg-reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* will-change left on indefinitely costs memory on low-end devices for
+   no benefit once the one-shot transition has finished. */
+.mg-reveal.is-visible {
+  will-change: auto;
+}
+
+/* Subtle arrow nudge on button hover — compositor-only, matches the
+   "new theme" CTA convention without adding any script. */
+.mg-btn img {
+  transition: transform 0.25s ease, filter 0.25s ease;
+}
+
+.mg-btn:hover img {
+  transform: translateX(3px);
+}
