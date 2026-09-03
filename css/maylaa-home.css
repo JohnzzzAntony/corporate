@@ -67,6 +67,13 @@
   box-sizing: border-box;
 }
 
+/* Cheap stand-in for the live template's ScrollSmoother inertia: native,
+   GPU-composited, zero JS. The prefers-reduced-motion rule near the end of
+   this file turns it off for anyone who has asked for less motion. */
+html {
+  scroll-behavior: smooth;
+}
+
 body.mg-page {
   margin: 0;
   font-family: var(--mg-font);
