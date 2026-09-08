@@ -369,7 +369,24 @@ button {
   align-items: center;
   overflow: hidden;
   border-radius: var(--mg-radius);
-  background: #0b1a33 url("../images/figma/hero-bg.png") center / cover no-repeat;
+  background: #0b1a33;
+}
+
+.mg-hero__inner::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: rgba(11, 26, 51, 0.55);
+}
+
+.mg-hero__video {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .mg-hero__content {
@@ -841,7 +858,7 @@ button {
   11. Trusted by / testimonial + logo grid — Figma 1:13354
 ------------------------------------------------------------------*/
 .mg-trusted {
-  padding: 40px 0 0;
+  padding: 50px 0 0;
 }
 
 .mg-trusted__panel {
@@ -850,6 +867,7 @@ button {
   border-radius: var(--mg-radius);
   overflow: hidden;
   background: var(--mg-white);
+  box-shadow: 0 10px 40px rgba(15, 23, 42, 0.03);
 }
 
 .mg-trusted__bg {
@@ -857,70 +875,108 @@ button {
   top: 0;
   left: 0;
   width: 100%;
-  height: 605px;
+  height: 100%;
   object-fit: cover;
   pointer-events: none;
+  opacity: 0.85;
 }
 
 .mg-trusted__head {
   position: relative;
   z-index: 1;
-  padding: 41px 39px 0;
-  max-width: 780px;
+  padding: 48px 48px 0;
+  max-width: 820px;
+}
+
+.mg-trusted__head .mg-h2 {
+  font-size: 44px;
+  line-height: 1.22;
+  letter-spacing: -0.02em;
+  color: var(--mg-title);
 }
 
 .mg-trusted__head .mg-lead {
-  margin-top: 25px;
+  margin-top: 18px;
+  font-size: 18px;
+  line-height: 28px;
+  color: var(--mg-body);
 }
 
 .mg-testimonial {
   position: relative;
   z-index: 1;
   display: grid;
-  grid-template-columns: 620px 1fr;
-  gap: 33px;
+  grid-template-columns: 480px minmax(0, 1fr);
+  gap: 48px;
   align-items: center;
-  padding: 40px 39px 0;
+  padding: 40px 48px 0;
 }
 
 .mg-testimonial__media {
-  height: 300px;
+  width: 100%;
+  height: 310px;
   border: 1px solid var(--mg-border);
   border-radius: var(--mg-radius);
   overflow: hidden;
   background: var(--mg-surface);
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.04);
 }
 
 .mg-testimonial__media img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  display: block;
+}
+
+.mg-testimonial__slider {
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.mg-testimonial__slider .swiper-wrapper {
+  width: 100%;
+  min-width: 0;
+}
+
+.mg-testimonial__slider .swiper-slide {
+  width: 100% !important;
+  min-width: 0;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 .mg-testimonial__quote {
-  font-size: 18px;
-  line-height: 30px;
+  font-size: 19px;
+  line-height: 32px;
   color: var(--mg-body);
+  font-style: normal;
+  white-space: normal;
+  word-break: normal;
+  overflow-wrap: break-word;
 }
 
 .mg-testimonial__name {
-  margin-top: 28px;
+  margin-top: 26px;
   font-size: 20px;
-  line-height: 30px;
+  font-weight: 600;
+  line-height: 28px;
   color: var(--mg-title);
 }
 
 .mg-testimonial__role {
-  font-size: 16px;
-  line-height: 30px;
+  font-size: 15px;
+  line-height: 24px;
   font-style: italic;
-  color: var(--mg-body);
+  color: #8C94A6;
 }
 
 .mg-testimonial__nav {
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 14px;
   margin-top: 24px;
 }
 
@@ -928,27 +984,27 @@ button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 56px;
-  height: 56px;
-  padding: 16px;
-  border-radius: 56px;
-  background: var(--mg-surface-chip);
-  transition: background-color 0.25s ease, opacity 0.25s ease;
+  width: 52px;
+  height: 52px;
+  border-radius: 52px;
+  background: #F1F4F9;
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  cursor: pointer;
+  transition: all 0.25s ease;
 }
 
 .mg-navbtn img {
-  width: 24px;
-  height: 24px;
+  width: 22px;
+  height: 22px;
+  transition: filter 0.25s ease;
 }
 
-.mg-navbtn--active {
-  background: var(--mg-primary-alt);
-}
-
+.mg-navbtn--active,
 .mg-navbtn:hover {
   background: var(--mg-primary-alt);
 }
 
+.mg-navbtn--active img,
 .mg-navbtn:hover img {
   filter: brightness(0) invert(1);
 }
@@ -967,73 +1023,220 @@ button {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 20px;
+  gap: 14px;
   flex-wrap: wrap;
-  padding: 60px 20px 40px;
+  padding: 54px 24px 36px;
 }
 
 .mg-filter {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  height: 40px;
-  padding: 12px 24px;
-  border: 1px solid var(--mg-primary-alt);
+  height: 42px;
+  padding: 0 24px;
+  border: 1px solid var(--mg-border);
   border-radius: var(--mg-pill);
-  font-size: 16px;
+  font-size: 15px;
+  font-weight: 500;
   line-height: 24px;
-  color: var(--mg-primary-alt);
-  transition: background-color 0.25s ease, color 0.25s ease;
+  color: var(--mg-title);
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.25s ease;
 }
 
 .mg-filter:hover {
   background: rgba(95, 118, 171, 0.08);
+  border-color: var(--mg-primary-alt);
+  color: var(--mg-primary-alt);
 }
 
 .mg-filter.is-active {
   background: var(--mg-primary);
   border-color: var(--mg-primary);
   color: var(--mg-white);
+  box-shadow: 0 4px 14px rgba(30, 58, 138, 0.16);
 }
 
+/* Brand logo display — clean borderless layout matching Image 2 */
 .mg-logogrid {
   position: relative;
   z-index: 1;
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 1px;
-  background: var(--mg-surface-tint);
-  border-radius: var(--mg-radius);
-  overflow: hidden;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 32px 36px;
+  align-items: center;
+  justify-items: center;
+  padding: 10px 48px 60px;
+  background: transparent;
+  border: none;
 }
 
 .mg-logogrid__cell {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 109px;
-  padding: 24px 48px;
-  background: var(--mg-white);
+  width: 100%;
+  min-height: 64px;
+  padding: 8px 12px;
+  background: transparent;
+  border: none;
+  border-radius: 8px;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
+}
+
+.mg-logogrid__cell:hover {
+  transform: translateY(-2px);
 }
 
 .mg-logogrid__cell img {
-  max-width: 100%;
-  max-height: 80px;
+  max-width: 130px;
+  max-height: 42px;
   width: auto;
   height: auto;
   object-fit: contain;
+  filter: grayscale(100%);
+  opacity: 0.72;
+  transition: all 0.3s ease;
 }
 
-.mg-logogrid__more {
-  font-size: 16px;
-  line-height: 30px;
-  font-style: italic;
-  color: var(--mg-body);
+.mg-logogrid__cell:hover img {
+  filter: grayscale(0%);
+  opacity: 1;
+  transform: scale(1.08);
+}
+
+.mg-logogrid__more,
+.mg-logogrid__wordmark {
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 24px;
+  letter-spacing: 0.06em;
+  color: var(--mg-title);
+  text-transform: uppercase;
+  opacity: 0.72;
+  font-style: normal;
+  text-align: center;
+  white-space: nowrap;
+  transition: all 0.3s ease;
+}
+
+.mg-logogrid__cell:hover .mg-logogrid__more,
+.mg-logogrid__cell:hover .mg-logogrid__wordmark {
+  opacity: 1;
+  color: var(--mg-primary);
+  transform: scale(1.06);
 }
 
 /* hidden by the filter buttons */
 .mg-logogrid__cell.is-hidden {
   display: none;
+}
+
+/*------------------------------------------------------------------
+  11b. Marquee brand rows — alternating slide directions
+------------------------------------------------------------------*/
+.mg-marquee {
+  position: relative;
+  z-index: 1;
+  padding: 10px 0 60px;
+  overflow: hidden;
+}
+
+.mg-marquee__row {
+  overflow: hidden;
+  margin-bottom: 28px;
+}
+
+.mg-marquee__row:last-child {
+  margin-bottom: 0;
+}
+
+.mg-marquee__track {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  width: max-content;
+  will-change: transform;
+}
+
+/* Row slides logos rightward: start at -50% → end at 0 */
+@keyframes mg-slide-r {
+  from { transform: translateX(-50%); }
+  to   { transform: translateX(0%); }
+}
+
+/* Row slides logos leftward: start at 0 → end at -50% */
+@keyframes mg-slide-l {
+  from { transform: translateX(0%); }
+  to   { transform: translateX(-50%); }
+}
+
+.mg-marquee__row--r .mg-marquee__track {
+  animation: mg-slide-r 32s linear infinite;
+}
+
+.mg-marquee__row--l .mg-marquee__track {
+  animation: mg-slide-l 30s linear infinite;
+}
+
+/* Pause all rows on hover */
+.mg-marquee:hover .mg-marquee__track {
+  animation-play-state: paused;
+}
+
+.mg-marquee__item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  min-width: 110px;
+  padding: 8px 16px;
+}
+
+.mg-marquee__item img {
+  max-width: 130px;
+  max-height: 42px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  filter: grayscale(100%);
+  opacity: 0.70;
+  transition: filter 0.35s ease, opacity 0.35s ease, transform 0.35s ease;
+  display: block;
+}
+
+.mg-marquee__item:hover img {
+  filter: grayscale(0%);
+  opacity: 1;
+  transform: scale(1.08);
+}
+
+/* Wordmark text items inside marquee */
+.mg-marquee__wordmark {
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--mg-title);
+  opacity: 0.65;
+  white-space: nowrap;
+  transition: opacity 0.3s ease, color 0.3s ease;
+}
+
+.mg-marquee__item:hover .mg-marquee__wordmark {
+  opacity: 1;
+  color: var(--mg-primary);
+}
+
+/* Accessibility: respect reduced-motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .mg-marquee__track {
+    animation: none !important;
+    flex-wrap: wrap;
+    gap: 20px;
+    width: auto;
+  }
 }
 
 /*------------------------------------------------------------------
@@ -1584,8 +1787,19 @@ button {
     gap: 20px;
   }
 
+  .mg-testimonial {
+    gap: 32px;
+    padding: 32px 32px 0;
+  }
+
+  .mg-trusted__head {
+    padding: 36px 32px 0;
+  }
+
   .mg-logogrid {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(5, 1fr);
+    gap: 28px 24px;
+    padding: 10px 32px 50px;
   }
 
   .mg-footer__links {
@@ -1647,8 +1861,23 @@ button {
     grid-template-columns: 1fr;
   }
 
+  .mg-testimonial {
+    gap: 28px;
+    padding: 28px 24px 0;
+  }
+
   .mg-testimonial__media {
     height: 260px;
+  }
+
+  .mg-trusted__head {
+    padding: 32px 24px 0;
+  }
+
+  .mg-logogrid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px 20px;
+    padding: 10px 24px 44px;
   }
 
   .mg-postlist {
@@ -1739,14 +1968,25 @@ button {
     grid-template-columns: 1fr;
   }
 
-  .mg-logogrid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
   .mg-trusted__head,
   .mg-testimonial {
     padding-left: 20px;
     padding-right: 20px;
+  }
+
+  .mg-testimonial__media {
+    height: 220px;
+  }
+
+  .mg-logogrid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px 16px;
+    padding: 10px 16px 36px;
+  }
+
+  .mg-filters {
+    padding: 36px 16px 24px;
+    gap: 10px;
   }
 
   .mg-post {
@@ -1784,6 +2024,23 @@ button {
   .mg-btn {
     height: 50px;
     padding: 12px 20px;
+  }
+
+  .mg-logogrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px 12px;
+    padding: 10px 12px 30px;
+  }
+
+  .mg-logogrid__cell img {
+    max-width: 110px;
+    max-height: 36px;
+  }
+
+  .mg-filter {
+    padding: 0 16px;
+    font-size: 14px;
+    height: 38px;
   }
 
   .mg-feature {
